@@ -33,6 +33,7 @@ namespace ApplicationForm
 
         private void bt_ActorMovie_Click(object sender, EventArgs e)
         {
+            uxResults.Text = "";
             string firstName = Interaction.InputBox("First name of the actor: ");
 
             string lastName = Interaction.InputBox("Last name of the actor: ");
@@ -42,18 +43,19 @@ namespace ApplicationForm
             foreach (Movie i in movie)
             {
                 uxResults.Text += i.MovieName;
-                uxResults.Text += "\n";
+                uxResults.AppendText(Environment.NewLine);
             }
         }
 
-        private void bt_ActorTotalSalary_Click(object sender, EventArgs e)
+        private void bt_ActorSalary_Click(object sender, EventArgs e)
         {
+            uxResults.Text = "";
             string firstName = Interaction.InputBox("First name of the actor: ");
 
             string lastName = Interaction.InputBox("Last name of the actor: ");
             SqlActorRepository a = new SqlActorRepository(connectionString);
             double salary = a.ActorTotalSalary(firstName, lastName);
-
+            uxResults.Text += salary.ToString();
         }
     }
 }

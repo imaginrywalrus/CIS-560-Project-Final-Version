@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace MoviesData.DataDelegates.QuestionQueryDelegates
 {
-    internal class ActorTotalSalaryDataDelegate : DataReaderDelegate<float>
+    internal class ActorTotalSalaryDataDelegate : DataReaderDelegate<double>
     {
         private readonly string firstName;
         private readonly string lastName;
@@ -28,14 +28,14 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
             p2.Value = lastName;
         }
 
-        public override float Translate(SqlCommand command, IDataRowReader reader)
+        public override double Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
             {
                 throw new RecordNotFoundException((lastName + ", " + firstName).ToString());
             }
 
-            return reader.GetValue<float>("TotalSalary");
+            return reader.GetDouble("TotalSalary");
         }
     }
 }

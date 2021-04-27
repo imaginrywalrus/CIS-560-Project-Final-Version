@@ -31,6 +31,7 @@ namespace ApplicationForm
         {
             this.bt_ActorMovie = new System.Windows.Forms.Button();
             this.uxResults = new System.Windows.Forms.TextBox();
+            this.bt_ActorSalary = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bt_ActorMovie
@@ -51,11 +52,22 @@ namespace ApplicationForm
             this.uxResults.Size = new System.Drawing.Size(283, 391);
             this.uxResults.TabIndex = 1;
             // 
+            // bt_ActorSalary
+            // 
+            this.bt_ActorSalary.Location = new System.Drawing.Point(225, 301);
+            this.bt_ActorSalary.Name = "bt_ActorSalary";
+            this.bt_ActorSalary.Size = new System.Drawing.Size(75, 23);
+            this.bt_ActorSalary.TabIndex = 2;
+            this.bt_ActorSalary.Text = "ActorSalary";
+            this.bt_ActorSalary.UseVisualStyleBackColor = true;
+            this.bt_ActorSalary.Click += new System.EventHandler(this.bt_ActorSalary_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bt_ActorSalary);
             this.Controls.Add(this.uxResults);
             this.Controls.Add(this.bt_ActorMovie);
             this.Name = "Form1";
@@ -69,6 +81,7 @@ namespace ApplicationForm
 
         private System.Windows.Forms.Button bt_ActorMovie;
         private System.Windows.Forms.TextBox uxResults;
+        private System.Windows.Forms.Button bt_ActorSalary;
     }
 }
 

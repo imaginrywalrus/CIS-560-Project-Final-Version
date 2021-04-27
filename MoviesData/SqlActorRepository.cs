@@ -21,7 +21,7 @@ namespace MoviesData
             return executor.ExecuteReader(d);
         }
 
-        public float ActorTotalSalary(string firstName, string lastName)
+        public double ActorTotalSalary(string firstName, string lastName)
         {
             var d = new ActorTotalSalaryDataDelegate(firstName, lastName);
             return executor.ExecuteReader(d);
