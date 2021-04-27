@@ -103,36 +103,8 @@ namespace ApplicationForm
             }
         }
 
-        private void bt_ScoreReview_Click_1(object sender, EventArgs e)
-        {
-            uxResults.Text = "";
-            string genre = Interaction.InputBox("Rating to filter by (1-10): ");
-            SqlReviewRepository a = new SqlReviewRepository(connectionString);
-            IReadOnlyList<Review> review = a.ScoreReviews(Convert.ToInt32(genre));
 
-            foreach (Review i in review)
-            {
-                uxResults.Text += i.ReviewID + "   ";
-                uxResults.Text += i.MovieID + "   ";
-                uxResults.Text += i.Rating + "   ";
-                uxResults.Text += i.ReviewerID + "   ";
-                uxResults.Text += i.ReviewSite + "   ";
-                uxResults.AppendText(Environment.NewLine);
-            }
-        }
-
-        private void bt_TotalSales_Click_1(object sender, EventArgs e)
-        {
-            uxResults.Text = "";
-            string movie = Interaction.InputBox("Movie to search for: ");
-            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
-            double total = a.TotalSales(movie);
-
-            uxResults.Text += total.ToString();
-            uxResults.AppendText(Environment.NewLine);
-        }
-
-        private void bt_stateCinemas_Click_1(object sender, EventArgs e)
+        private void bt_stateCinemas_Click(object sender, EventArgs e)
         {
             uxResults.Text = "";
             string state = Interaction.InputBox("State to search for: ");
@@ -142,6 +114,54 @@ namespace ApplicationForm
             foreach (Cinema i in cinemas)
             {
                 uxResults.Text += i.Address + ", " + i.City + ", " + i.State;
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
+
+        private void bt_TotalSales_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string movie = Interaction.InputBox("Movie to search for: ");
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            double total = a.TotalSales(movie);
+
+            uxResults.Text += total;
+            uxResults.AppendText(Environment.NewLine);
+        }
+
+        private void bt_ActorInCommon_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string firstName = Interaction.InputBox("First name of the actor: ");
+
+            string lastName = Interaction.InputBox("Last name of the actor: ");
+            SqlActorRepository a = new SqlActorRepository(connectionString);
+            IReadOnlyList<(Actor, Actor, Movie)> commonList = a.ActorInCommon(firstName, lastName);
+            foreach ((Actor, Actor, Movie) triple in commonList)
+            {
+                uxResults.Text += triple.Item2.FirstName + " " + triple.Item2.LastName + " in ";
+                uxResults.Text += triple.Item3.MovieName;
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
+
+        private void bt_ActorGenreMovies_Click(object sender, EventArgs e)
+        {
+            //For a given actor, show all movies they were in that was a certain genre and in a given range of review scores along with
+            uxResults.Text = "";
+            string firstName = Interaction.InputBox("First name of the actor: ");
+
+            string lastName = Interaction.InputBox("Last name of the actor: ");
+            string genre = Interaction.InputBox("Genre to search for: ");
+            int ratingMin = Convert.ToInt32(Interaction.InputBox("Minimum rating to allow: "));
+            int ratingMax = Convert.ToInt32(Interaction.InputBox("Maximum rating to allow: "));
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            IReadOnlyList<(Movie, int, int)> reviewList = a.ActorGenreMovies(firstName, lastName, genre, ratingMin, ratingMax);
+            foreach ((Movie, int, int) quin in reviewList)
+            {
+                uxResults.Text += quin.Item1.MovieName;
+                uxResults.Text += quin.Item2 + ", ";
+                uxResults.Text += quin.Item3;
                 uxResults.AppendText(Environment.NewLine);
             }
         }

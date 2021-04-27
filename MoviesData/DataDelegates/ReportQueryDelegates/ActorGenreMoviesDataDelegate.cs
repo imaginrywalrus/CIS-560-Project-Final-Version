@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace MoviesData.DataDelegates.ReportQueryDelegates
 {
-    internal class ActorGenreMoviesDataDelegate : DataReaderDelegate<IReadOnlyList<(Movie, int, int, string)>>
+    internal class ActorGenreMoviesDataDelegate : DataReaderDelegate<IReadOnlyList<(Movie, int, int)>>
     {
         private readonly string firstName;
         private readonly string lastName;
@@ -44,13 +44,13 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             p5.Value = ratingMax;
         }
 
-        public override IReadOnlyList<(Movie, int, int, string)> Translate(SqlCommand command, IDataRowReader reader)
+        public override IReadOnlyList<(Movie, int, int)> Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
             {
                 throw new RecordNotFoundException((lastName + ", " + firstName + " in " + genre + ", " + ratingMin + " to " + ratingMax).ToString());
             }
-            var movies = new List<(Movie, int, int, string)>();
+            var movies = new List<(Movie, int, int)>();
             while (reader.Read())
             {
                 Movie addMovie = new Movie(
@@ -60,7 +60,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
                    reader.GetString("Genre2"),
                    reader.GetString("Genre3"),
                    reader.GetDateTime("ReleaseDate"),
-                   reader.GetValue<float>("CostOfProduction")
+                   reader.GetDouble("CostOfProduction")
                    /*
                    reader.GetString("IsRemoved"),
                    reader.GetString("CreatedOn"),
@@ -69,8 +69,8 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
                    );
                 int totalReviews = reader.GetInt32("TotalReviews");
                 int rating = reader.GetInt32("Rating");
-                string ratingSite = reader.GetString("RatingSite");
-                movies.Add((addMovie, totalReviews, rating, ratingSite));
+                //string ratingSite = reader.GetString("RatingSite");
+                movies.Add((addMovie, totalReviews, rating));
             }
             return movies;
         }

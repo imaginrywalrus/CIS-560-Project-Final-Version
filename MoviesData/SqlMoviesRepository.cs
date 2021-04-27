@@ -39,7 +39,7 @@ namespace MoviesData
             return executor.ExecuteReader(d);
         }
 
-        public IReadOnlyList<(Movie, int, int, string)> ActorGenreMovies(string firstName, string lastName, string genre, int minScore, int maxScore)
+        public IReadOnlyList<(Movie, int, int)> ActorGenreMovies(string firstName, string lastName, string genre, int minScore, int maxScore)
         {
             var d = new ActorGenreMoviesDataDelegate(firstName, lastName, genre, minScore, maxScore);
             return executor.ExecuteReader(d);
