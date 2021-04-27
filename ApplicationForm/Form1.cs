@@ -44,5 +44,15 @@ namespace ApplicationForm
                 Console.WriteLine(i.ToString());
             }
         }
+
+        private void bt_ActorTotalSalary_Click(object sender, EventArgs e)
+        {
+            string firstName = Interaction.InputBox("First name of the actor: ");
+
+            string lastName = Interaction.InputBox("Last name of the actor: ");
+            SqlActorRepository a = new SqlActorRepository(connectionString);
+            double salary = a.ActorTotalSalary(firstName, lastName);
+
+        }
     }
 }

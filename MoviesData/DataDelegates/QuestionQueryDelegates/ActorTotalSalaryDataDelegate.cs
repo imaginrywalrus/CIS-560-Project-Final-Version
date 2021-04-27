@@ -28,7 +28,7 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
             p2.Value = lastName;
         }
 
-        public override float Translate(SqlCommand command, IDataRowReader reader)
+        public override double Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
             {
