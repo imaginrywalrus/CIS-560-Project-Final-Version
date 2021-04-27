@@ -47,7 +47,7 @@ namespace ApplicationForm
             // bt_ActorMovie
             // 
             this.bt_ActorMovie.Location = new System.Drawing.Point(17, 16);
-            this.bt_ActorMovie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_ActorMovie.Margin = new System.Windows.Forms.Padding(4);
             this.bt_ActorMovie.Name = "bt_ActorMovie";
             this.bt_ActorMovie.Size = new System.Drawing.Size(100, 28);
             this.bt_ActorMovie.TabIndex = 0;
@@ -58,7 +58,7 @@ namespace ApplicationForm
             // uxResults
             // 
             this.uxResults.Location = new System.Drawing.Point(637, 15);
-            this.uxResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uxResults.Margin = new System.Windows.Forms.Padding(4);
             this.uxResults.Multiline = true;
             this.uxResults.Name = "uxResults";
             this.uxResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -68,7 +68,7 @@ namespace ApplicationForm
             // bt_ActorSalary
             // 
             this.bt_ActorSalary.Location = new System.Drawing.Point(191, 16);
-            this.bt_ActorSalary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_ActorSalary.Margin = new System.Windows.Forms.Padding(4);
             this.bt_ActorSalary.Name = "bt_ActorSalary";
             this.bt_ActorSalary.Size = new System.Drawing.Size(100, 28);
             this.bt_ActorSalary.TabIndex = 2;
@@ -79,7 +79,7 @@ namespace ApplicationForm
             // bt_DirectorMovies
             // 
             this.bt_DirectorMovies.Location = new System.Drawing.Point(348, 16);
-            this.bt_DirectorMovies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_DirectorMovies.Margin = new System.Windows.Forms.Padding(4);
             this.bt_DirectorMovies.Name = "bt_DirectorMovies";
             this.bt_DirectorMovies.Size = new System.Drawing.Size(135, 28);
             this.bt_DirectorMovies.TabIndex = 3;
@@ -115,6 +115,7 @@ namespace ApplicationForm
             this.bt_ScoreReview.TabIndex = 6;
             this.bt_ScoreReview.Text = "ScoreReview";
             this.bt_ScoreReview.UseVisualStyleBackColor = true;
+            this.bt_ScoreReview.Click += new System.EventHandler(this.bt_ScoreReview_Click_1);
             // 
             // bt_ActorGenreMovies
             // 
@@ -133,6 +134,7 @@ namespace ApplicationForm
             this.bt_stateCinemas.TabIndex = 7;
             this.bt_stateCinemas.Text = "StateCinemas";
             this.bt_stateCinemas.UseVisualStyleBackColor = true;
+            this.bt_stateCinemas.Click += new System.EventHandler(this.bt_stateCinemas_Click_1);
             // 
             // bt_TotalSales
             // 
@@ -142,6 +144,7 @@ namespace ApplicationForm
             this.bt_TotalSales.TabIndex = 8;
             this.bt_TotalSales.Text = "TotalSales";
             this.bt_TotalSales.UseVisualStyleBackColor = true;
+            this.bt_TotalSales.Click += new System.EventHandler(this.bt_TotalSales_Click_1);
             // 
             // bt_ActorInCommon
             // 
@@ -188,7 +191,7 @@ namespace ApplicationForm
             this.Controls.Add(this.bt_ActorSalary);
             this.Controls.Add(this.uxResults);
             this.Controls.Add(this.bt_ActorMovie);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

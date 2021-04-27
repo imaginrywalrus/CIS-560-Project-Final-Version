@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace MoviesData.DataDelegates.QuestionQueryDelegates
 {
-    internal class TotalSalesDataDelegate : DataReaderDelegate<int>
+    internal class TotalSalesDataDelegate : DataReaderDelegate<double>
     {
         private readonly string movieName;
 
@@ -24,14 +24,16 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
             p1.Value = movieName;
         }
 
-        public override int Translate(SqlCommand command, IDataRowReader reader)
+        public override double Translate(SqlCommand command, IDataRowReader reader)
         {
+            
             if (!reader.Read())
             {
                 throw new RecordNotFoundException(movieName.ToString());
             }
+            
 
-            return reader.GetInt32("TotalSales");
+            return reader.GetDouble("TotalSales");
         }
     }
 }

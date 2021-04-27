@@ -103,8 +103,36 @@ namespace ApplicationForm
             }
         }
 
+        private void bt_ScoreReview_Click_1(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string genre = Interaction.InputBox("Rating to filter by (1-10): ");
+            SqlReviewRepository a = new SqlReviewRepository(connectionString);
+            IReadOnlyList<Review> review = a.ScoreReviews(Convert.ToInt32(genre));
 
-        private void bt_stateCinemas_Click(object sender, EventArgs e)
+            foreach (Review i in review)
+            {
+                uxResults.Text += i.ReviewID + "   ";
+                uxResults.Text += i.MovieID + "   ";
+                uxResults.Text += i.Rating + "   ";
+                uxResults.Text += i.ReviewerID + "   ";
+                uxResults.Text += i.ReviewSite + "   ";
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
+
+        private void bt_TotalSales_Click_1(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string movie = Interaction.InputBox("Movie to search for: ");
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            double total = a.TotalSales(movie);
+
+            uxResults.Text += total.ToString();
+            uxResults.AppendText(Environment.NewLine);
+        }
+
+        private void bt_stateCinemas_Click_1(object sender, EventArgs e)
         {
             uxResults.Text = "";
             string state = Interaction.InputBox("State to search for: ");
@@ -116,17 +144,6 @@ namespace ApplicationForm
                 uxResults.Text += i.Address + ", " + i.City + ", " + i.State;
                 uxResults.AppendText(Environment.NewLine);
             }
-        }
-
-        private void bt_TotalSales_Click(object sender, EventArgs e)
-        {
-            uxResults.Text = "";
-            string movie = Interaction.InputBox("Movie to search for: ");
-            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
-            double total = a.TotalSales(movie);
-
-            uxResults.Text += total;
-            uxResults.AppendText(Environment.NewLine);
         }
     }
 }
