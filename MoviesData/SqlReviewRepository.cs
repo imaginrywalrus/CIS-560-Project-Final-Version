@@ -26,5 +26,11 @@ namespace MoviesData
             var d = new ScoreReviewsDataDelegate(score);
             return executor.ExecuteReader(d);
         }
+
+        public IReadOnlyList<(Review, Movie, int, int, int, int, int, int, int)> GoodReview(int score)
+        {
+            var d = new GoodReviewDataDelegate(score);
+            return executor.ExecuteReader(d);
+        }
     }
 }

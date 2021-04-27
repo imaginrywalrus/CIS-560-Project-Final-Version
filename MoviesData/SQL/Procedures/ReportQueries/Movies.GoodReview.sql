@@ -1,6 +1,4 @@
 CREATE OR ALTER PROCEDURE Movies.GoodReview
-    @FirstName NVARCHAR(32),
-    @LastName NVARCHAR(32),
     @Rating INT
 AS
 

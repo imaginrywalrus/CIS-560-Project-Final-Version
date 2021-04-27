@@ -6,40 +6,31 @@ using System.Data.SqlClient;
 
 namespace MoviesData.DataDelegates.ReportQueryDelegates
 {
-    internal class GoodReviewDataDelegate : DataReaderDelegate<IReadOnlyList<(Review, Movie)>>
+    internal class GoodReviewDataDelegate : DataReaderDelegate<IReadOnlyList<(Review, Movie, int, int, int, int, int, int, int)>>
     {
-        private readonly string firstName;
-        private readonly string lastName;
         private readonly int rating;
 
-        public GoodReviewDataDelegate(string firstName, string lastName, int rating)
+        public GoodReviewDataDelegate(int rating)
            : base("Movies.GoodReview")
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
             this.rating = rating;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-
-            var p1 = command.Parameters.Add("firstName", SqlDbType.NVarChar);
-            var p2 = command.Parameters.Add("lastName", SqlDbType.NVarChar);
             var p3 = command.Parameters.Add("rating", SqlDbType.Int);
-            p1.Value = firstName;
-            p2.Value = lastName;
             p3.Value = rating;
         }
 
-        public override IReadOnlyList<(Review, Movie)> Translate(SqlCommand command, IDataRowReader reader)
+        public override IReadOnlyList<(Review, Movie, int, int, int, int, int, int, int)> Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
             {
-                throw new RecordNotFoundException((lastName + ", " + firstName + ", " + rating).ToString());
+                throw new RecordNotFoundException((rating).ToString());
             }
 
-            var reviewMoviePair = new List<(Review, Movie)>();
+            var reviewMoviePair = new List<(Review, Movie, int, int, int, int, int, int, int)>();
 
             while (reader.Read())
             {
@@ -58,14 +49,21 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
                    reader.GetString("Genre2"),
                    reader.GetString("Genre3"),
                    reader.GetDateTime("ReleaseDate"),
-                   reader.GetValue<float>("CostOfProduction")
+                   reader.GetDouble("CostOfProduction")
                    /*
                    reader.GetString("IsRemoved"),
                    reader.GetString("CreatedOn"),
                    reader.GetString("UpdatedOn")
                    */
                    );
-                reviewMoviePair.Add((addReview, addMovie));
+                reviewMoviePair.Add((addReview, addMovie, 
+                    reader.GetInt32("DramaCount"), 
+                    reader.GetInt32("CrimeCount"), 
+                    reader.GetInt32("ActionCount"),
+                    reader.GetInt32("BiographyCount"),
+                    reader.GetInt32("HistoryCount"),
+                    reader.GetInt32("AdventureCount"),
+                    reader.GetInt32("WesternCount")));
             }
 
             return reviewMoviePair;
