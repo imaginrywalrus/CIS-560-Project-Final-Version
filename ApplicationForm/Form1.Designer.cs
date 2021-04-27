@@ -163,6 +163,7 @@ namespace ApplicationForm
             this.bt_goodReview.TabIndex = 10;
             this.bt_goodReview.Text = "goodReview";
             this.bt_goodReview.UseVisualStyleBackColor = true;
+            this.bt_goodReview.Click += new System.EventHandler(this.bt_goodReview_Click);
             // 
             // bt_ShowingInfo
             // 
@@ -172,6 +173,7 @@ namespace ApplicationForm
             this.bt_ShowingInfo.TabIndex = 11;
             this.bt_ShowingInfo.Text = "ShowingInfo";
             this.bt_ShowingInfo.UseVisualStyleBackColor = true;
+            this.bt_ShowingInfo.Click += new System.EventHandler(this.bt_ShowingInfo_Click);
             // 
             // Form1
             // 

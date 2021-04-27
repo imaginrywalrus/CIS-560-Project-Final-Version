@@ -15,7 +15,7 @@ namespace MoviesData
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public IReadOnlyList<(Cinema, string, float, float)> ShowingInfo()
+        public IReadOnlyList<(Cinema, string, double, double)> ShowingInfo()
         {
             var d = new ShowingInfoDataDelegate();
             return executor.ExecuteReader(d);

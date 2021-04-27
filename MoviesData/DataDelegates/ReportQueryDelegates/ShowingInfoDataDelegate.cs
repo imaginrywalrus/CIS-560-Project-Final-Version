@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace MoviesData.DataDelegates.ReportQueryDelegates
 {
-    internal class ShowingInfoDataDelegate : DataReaderDelegate<IReadOnlyList<(Cinema, string, float, float)>>
+    internal class ShowingInfoDataDelegate : DataReaderDelegate<IReadOnlyList<(Cinema, string, double, double)>>
     {
 
         public ShowingInfoDataDelegate()
@@ -19,9 +19,9 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             base.PrepareCommand(command);
         }
 
-        public override IReadOnlyList<(Cinema, string, float, float)> Translate(SqlCommand command, IDataRowReader reader)
+        public override IReadOnlyList<(Cinema, string, double, double)> Translate(SqlCommand command, IDataRowReader reader)
         {
-            var showingInfo = new List<(Cinema, string, float, float)>();
+            var showingInfo = new List<(Cinema, string, double, double)>();
             while (reader.Read())
             {
                 Cinema addCinema = new Cinema(
@@ -36,8 +36,8 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
                    */
                    );
                 string movieName = reader.GetString("MovieName");
-                float sales = reader.GetValue<float>("Sales");
-                float runningSales = reader.GetValue<float>("RunningSales");
+                double sales = reader.GetDouble("Sales");
+                double runningSales = reader.GetDouble("RunningSales");
                 showingInfo.Add((addCinema, movieName, sales,runningSales));
             }
             return showingInfo;

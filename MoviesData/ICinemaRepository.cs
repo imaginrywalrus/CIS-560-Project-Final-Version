@@ -9,6 +9,6 @@ namespace MoviesData
     {
         IReadOnlyList<Cinema> StateCinemas(string state);
 
-        IReadOnlyList<(Cinema, string, float, float)> ShowingInfo();
+        IReadOnlyList<(Cinema, string, double, double)> ShowingInfo();
     }
 }

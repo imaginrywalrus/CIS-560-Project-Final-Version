@@ -145,5 +145,48 @@ namespace ApplicationForm
                 uxResults.AppendText(Environment.NewLine);
             }
         }
+
+        private void bt_goodReview_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string score = Interaction.InputBox("Rating to filter by (1-10): ");
+            SqlReviewRepository a = new SqlReviewRepository(connectionString);
+            IReadOnlyList<(Review, Movie, int, int, int, int, int, int, int)> review = a.GoodReview(Convert.ToInt32(score));
+
+            foreach ((Review, Movie, int, int, int, int, int, int, int) i in review)
+            {
+              
+                uxResults.Text += i.Item1.ReviewerID + "   ";
+                uxResults.Text += i.Item2.MovieName + "   ";
+                uxResults.Text += i.Item1.Rating + "   ";
+                uxResults.Text += i.Item3.ToString() + "   ";
+                uxResults.Text += i.Item4.ToString() + "   ";
+                uxResults.Text += i.Item5.ToString() + "   ";
+                uxResults.Text += i.Item6.ToString() + "   ";
+                uxResults.Text += i.Item7.ToString() + "   ";
+                uxResults.Text += i.Item8.ToString() + "   ";
+                uxResults.Text += i.Item9.ToString() + "   ";
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
+
+        private void bt_ShowingInfo_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
+            IReadOnlyList<(Cinema, string, double, double)> review = a.ShowingInfo();
+
+            foreach((Cinema, string, double, double) i in review)
+            {
+                uxResults.Text += i.Item1.CinemaID + "   ";
+                uxResults.Text += i.Item1.State + "   ";
+                uxResults.Text += i.Item2 + "   ";
+                uxResults.Text += i.Item3.ToString() + "   ";
+                uxResults.Text += i.Item4.ToString() + "   ";
+                
+
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
     }
 }
