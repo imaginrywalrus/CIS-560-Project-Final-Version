@@ -208,5 +208,22 @@ namespace ApplicationForm
                 uxResults.AppendText(Environment.NewLine);
             }
         }
+
+        private void bt_ScoreReview_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string genre = Interaction.InputBox("Score To filter: ");
+            SqlReviewRepository a = new SqlReviewRepository(connectionString);
+            IReadOnlyList<Review> review = a.ScoreReviews(Convert.ToInt32(genre));
+
+            foreach (Review i in review)
+            {
+                uxResults.Text += i.ReviewID + "   ";
+                uxResults.Text += i.ReviewerID + "   ";
+                uxResults.Text += i.Rating + "   ";
+                uxResults.Text += i.ReviewSite + "   ";
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
     }
 }
