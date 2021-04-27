@@ -89,12 +89,16 @@ namespace ApplicationForm
         private void bt_MovieReviews_Click(object sender, EventArgs e)
         {
             uxResults.Text = "";
-            string genre = Interaction.InputBox("Genre to search for: ");
-            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
-            IReadOnlyList<Movie> movie = a.(genre);
-            foreach (Movie i in movie)
+            string genre = Interaction.InputBox("Movie to search for: ");
+            SqlReviewRepository a = new SqlReviewRepository(connectionString);
+            IReadOnlyList<Review> review = a.MovieReviews(genre);
+            
+            foreach (Review i in review)
             {
-                uxResults.Text += i.MovieName;
+                uxResults.Text += i.ReviewID + "   ";
+                uxResults.Text += i.ReviewerID + "   ";
+                uxResults.Text += i.Rating + "   ";
+                uxResults.Text += i.ReviewSite + "   ";
                 uxResults.AppendText(Environment.NewLine);
             }
         }

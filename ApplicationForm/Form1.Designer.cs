@@ -61,6 +61,7 @@ namespace ApplicationForm
             this.uxResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uxResults.Multiline = true;
             this.uxResults.Name = "uxResults";
+            this.uxResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.uxResults.Size = new System.Drawing.Size(376, 480);
             this.uxResults.TabIndex = 1;
             // 
