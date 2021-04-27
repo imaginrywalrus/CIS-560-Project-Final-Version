@@ -46,10 +46,10 @@ namespace ApplicationForm
             // 
             // bt_ActorMovie
             // 
-            this.bt_ActorMovie.Location = new System.Drawing.Point(19, 20);
-            this.bt_ActorMovie.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bt_ActorMovie.Location = new System.Drawing.Point(17, 16);
+            this.bt_ActorMovie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_ActorMovie.Name = "bt_ActorMovie";
-            this.bt_ActorMovie.Size = new System.Drawing.Size(112, 35);
+            this.bt_ActorMovie.Size = new System.Drawing.Size(100, 28);
             this.bt_ActorMovie.TabIndex = 0;
             this.bt_ActorMovie.Text = "ActorMovie";
             this.bt_ActorMovie.UseVisualStyleBackColor = true;
@@ -57,19 +57,20 @@ namespace ApplicationForm
             // 
             // uxResults
             // 
-            this.uxResults.Location = new System.Drawing.Point(717, 19);
-            this.uxResults.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uxResults.Location = new System.Drawing.Point(637, 15);
+            this.uxResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uxResults.Multiline = true;
             this.uxResults.Name = "uxResults";
-            this.uxResults.Size = new System.Drawing.Size(422, 599);
+            this.uxResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.uxResults.Size = new System.Drawing.Size(376, 480);
             this.uxResults.TabIndex = 1;
             // 
             // bt_ActorSalary
             // 
-            this.bt_ActorSalary.Location = new System.Drawing.Point(215, 20);
-            this.bt_ActorSalary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bt_ActorSalary.Location = new System.Drawing.Point(191, 16);
+            this.bt_ActorSalary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_ActorSalary.Name = "bt_ActorSalary";
-            this.bt_ActorSalary.Size = new System.Drawing.Size(112, 35);
+            this.bt_ActorSalary.Size = new System.Drawing.Size(100, 28);
             this.bt_ActorSalary.TabIndex = 2;
             this.bt_ActorSalary.Text = "ActorSalary";
             this.bt_ActorSalary.UseVisualStyleBackColor = true;
@@ -77,10 +78,10 @@ namespace ApplicationForm
             // 
             // bt_DirectorMovies
             // 
-            this.bt_DirectorMovies.Location = new System.Drawing.Point(392, 20);
-            this.bt_DirectorMovies.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bt_DirectorMovies.Location = new System.Drawing.Point(348, 16);
+            this.bt_DirectorMovies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_DirectorMovies.Name = "bt_DirectorMovies";
-            this.bt_DirectorMovies.Size = new System.Drawing.Size(152, 35);
+            this.bt_DirectorMovies.Size = new System.Drawing.Size(135, 28);
             this.bt_DirectorMovies.TabIndex = 3;
             this.bt_DirectorMovies.Text = "DirectorMovies";
             this.bt_DirectorMovies.UseVisualStyleBackColor = true;
@@ -88,10 +89,9 @@ namespace ApplicationForm
             // 
             // bt_GenreMovies
             // 
-            this.bt_GenreMovies.Location = new System.Drawing.Point(19, 141);
-            this.bt_GenreMovies.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bt_GenreMovies.Location = new System.Drawing.Point(17, 113);
             this.bt_GenreMovies.Name = "bt_GenreMovies";
-            this.bt_GenreMovies.Size = new System.Drawing.Size(112, 29);
+            this.bt_GenreMovies.Size = new System.Drawing.Size(100, 23);
             this.bt_GenreMovies.TabIndex = 4;
             this.bt_GenreMovies.Text = "GenreMovies";
             this.bt_GenreMovies.UseVisualStyleBackColor = true;
@@ -99,10 +99,9 @@ namespace ApplicationForm
             // 
             // bt_MovieReviews
             // 
-            this.bt_MovieReviews.Location = new System.Drawing.Point(215, 141);
-            this.bt_MovieReviews.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bt_MovieReviews.Location = new System.Drawing.Point(191, 113);
             this.bt_MovieReviews.Name = "bt_MovieReviews";
-            this.bt_MovieReviews.Size = new System.Drawing.Size(112, 29);
+            this.bt_MovieReviews.Size = new System.Drawing.Size(100, 23);
             this.bt_MovieReviews.TabIndex = 5;
             this.bt_MovieReviews.Text = "MovieReviews";
             this.bt_MovieReviews.UseVisualStyleBackColor = true;
@@ -110,81 +109,72 @@ namespace ApplicationForm
             // 
             // bt_ScoreReview
             // 
-            this.bt_ScoreReview.Location = new System.Drawing.Point(392, 141);
-            this.bt_ScoreReview.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bt_ScoreReview.Location = new System.Drawing.Point(348, 113);
             this.bt_ScoreReview.Name = "bt_ScoreReview";
-            this.bt_ScoreReview.Size = new System.Drawing.Size(112, 29);
+            this.bt_ScoreReview.Size = new System.Drawing.Size(100, 23);
             this.bt_ScoreReview.TabIndex = 6;
             this.bt_ScoreReview.Text = "ScoreReview";
             this.bt_ScoreReview.UseVisualStyleBackColor = true;
             // 
             // bt_ActorGenreMovies
             // 
-            this.bt_ActorGenreMovies.Location = new System.Drawing.Point(392, 254);
-            this.bt_ActorGenreMovies.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bt_ActorGenreMovies.Location = new System.Drawing.Point(348, 203);
             this.bt_ActorGenreMovies.Name = "bt_ActorGenreMovies";
-            this.bt_ActorGenreMovies.Size = new System.Drawing.Size(169, 29);
+            this.bt_ActorGenreMovies.Size = new System.Drawing.Size(150, 23);
             this.bt_ActorGenreMovies.TabIndex = 7;
             this.bt_ActorGenreMovies.Text = "ActorGenreMovies";
             this.bt_ActorGenreMovies.UseVisualStyleBackColor = true;
             // 
             // bt_stateCinemas
             // 
-            this.bt_stateCinemas.Location = new System.Drawing.Point(19, 254);
-            this.bt_stateCinemas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bt_stateCinemas.Location = new System.Drawing.Point(17, 203);
             this.bt_stateCinemas.Name = "bt_stateCinemas";
-            this.bt_stateCinemas.Size = new System.Drawing.Size(112, 29);
+            this.bt_stateCinemas.Size = new System.Drawing.Size(100, 23);
             this.bt_stateCinemas.TabIndex = 7;
             this.bt_stateCinemas.Text = "StateCinemas";
             this.bt_stateCinemas.UseVisualStyleBackColor = true;
-            this.bt_stateCinemas.Click += new System.EventHandler(this.bt_stateCinemas_Click);
             // 
             // bt_TotalSales
             // 
-            this.bt_TotalSales.Location = new System.Drawing.Point(215, 254);
-            this.bt_TotalSales.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bt_TotalSales.Location = new System.Drawing.Point(191, 203);
             this.bt_TotalSales.Name = "bt_TotalSales";
-            this.bt_TotalSales.Size = new System.Drawing.Size(112, 29);
+            this.bt_TotalSales.Size = new System.Drawing.Size(100, 23);
             this.bt_TotalSales.TabIndex = 8;
             this.bt_TotalSales.Text = "TotalSales";
             this.bt_TotalSales.UseVisualStyleBackColor = true;
-            this.bt_TotalSales.Click += new System.EventHandler(this.bt_TotalSales_Click);
             // 
             // bt_ActorInCommon
             // 
-            this.bt_ActorInCommon.Location = new System.Drawing.Point(14, 374);
-            this.bt_ActorInCommon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bt_ActorInCommon.Location = new System.Drawing.Point(12, 299);
             this.bt_ActorInCommon.Name = "bt_ActorInCommon";
-            this.bt_ActorInCommon.Size = new System.Drawing.Size(112, 29);
+            this.bt_ActorInCommon.Size = new System.Drawing.Size(100, 23);
             this.bt_ActorInCommon.TabIndex = 9;
             this.bt_ActorInCommon.Text = "ActorInCommon";
             this.bt_ActorInCommon.UseVisualStyleBackColor = true;
             // 
             // bt_goodReview
             // 
-            this.bt_goodReview.Location = new System.Drawing.Point(215, 374);
-            this.bt_goodReview.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bt_goodReview.Location = new System.Drawing.Point(191, 299);
             this.bt_goodReview.Name = "bt_goodReview";
-            this.bt_goodReview.Size = new System.Drawing.Size(112, 41);
+            this.bt_goodReview.Size = new System.Drawing.Size(100, 33);
             this.bt_goodReview.TabIndex = 10;
             this.bt_goodReview.Text = "goodReview";
             this.bt_goodReview.UseVisualStyleBackColor = true;
             // 
             // bt_ShowingInfo
             // 
-            this.bt_ShowingInfo.Location = new System.Drawing.Point(392, 374);
-            this.bt_ShowingInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bt_ShowingInfo.Location = new System.Drawing.Point(348, 299);
             this.bt_ShowingInfo.Name = "bt_ShowingInfo";
-            this.bt_ShowingInfo.Size = new System.Drawing.Size(112, 29);
+            this.bt_ShowingInfo.Size = new System.Drawing.Size(100, 23);
             this.bt_ShowingInfo.TabIndex = 11;
             this.bt_ShowingInfo.Text = "ShowingInfo";
             this.bt_ShowingInfo.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.bt_ShowingInfo);
             this.Controls.Add(this.bt_goodReview);
             this.Controls.Add(this.bt_ActorInCommon);
@@ -198,7 +188,7 @@ namespace ApplicationForm
             this.Controls.Add(this.bt_ActorSalary);
             this.Controls.Add(this.uxResults);
             this.Controls.Add(this.bt_ActorMovie);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
