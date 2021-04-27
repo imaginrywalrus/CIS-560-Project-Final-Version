@@ -33,7 +33,7 @@ namespace MoviesData
             return executor.ExecuteReader(d);
         }
 
-        public int TotalSales(string moviename)
+        public double TotalSales(string moviename)
         {
             var d = new TotalSalesDataDelegate(moviename);
             return executor.ExecuteReader(d);
