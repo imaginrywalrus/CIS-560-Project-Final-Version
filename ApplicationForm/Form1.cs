@@ -98,5 +98,31 @@ namespace ApplicationForm
                 uxResults.AppendText(Environment.NewLine);
             }
         }
+
+
+        private void bt_stateCinemas_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string state = Interaction.InputBox("State to search for: ");
+            SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
+            IReadOnlyList<Cinema> cinemas = a.StateCinemas(state);
+
+            foreach (Cinema i in cinemas)
+            {
+                uxResults.Text += i.Address + ", " + i.City + ", " + i.State;
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
+
+        private void bt_TotalSales_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string movie = Interaction.InputBox("Movie to search for: ");
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            double total = a.TotalSales(movie);
+
+            uxResults.Text += total;
+            uxResults.AppendText(Environment.NewLine);
+        }
     }
 }

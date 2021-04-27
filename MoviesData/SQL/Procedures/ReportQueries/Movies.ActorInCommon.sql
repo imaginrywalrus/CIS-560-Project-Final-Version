@@ -18,7 +18,7 @@ Select
     A.FirstName AS EndFirstName,
     A.MiddleName AS EndMiddleName,
     A.LastName AS EndLastName,
-    M.MovieID AS MovieID, 
+    M.MovieID AS MovieID,
     M.MovieName AS MovieName,
     M.Genre1 AS Genre1,
     M.Genre2 AS Genre2,
