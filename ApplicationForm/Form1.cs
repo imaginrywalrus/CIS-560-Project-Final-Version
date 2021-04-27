@@ -103,22 +103,25 @@ namespace ApplicationForm
             }
         }
 
-
-        private void bt_stateCinemas_Click(object sender, EventArgs e)
+        private void bt_ScoreReview_Click_1(object sender, EventArgs e)
         {
             uxResults.Text = "";
-            string state = Interaction.InputBox("State to search for: ");
-            SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
-            IReadOnlyList<Cinema> cinemas = a.StateCinemas(state);
+            string genre = Interaction.InputBox("Rating to filter by (1-10): ");
+            SqlReviewRepository a = new SqlReviewRepository(connectionString);
+            IReadOnlyList<Review> review = a.ScoreReviews(Convert.ToInt32(genre));
 
-            foreach (Cinema i in cinemas)
+            foreach (Review i in review)
             {
-                uxResults.Text += i.Address + ", " + i.City + ", " + i.State;
+                uxResults.Text += i.ReviewID + "   ";
+                uxResults.Text += i.MovieID + "   ";
+                uxResults.Text += i.Rating + "   ";
+                uxResults.Text += i.ReviewerID + "   ";
+                uxResults.Text += i.ReviewSite + "   ";
                 uxResults.AppendText(Environment.NewLine);
             }
         }
 
-        private void bt_TotalSales_Click(object sender, EventArgs e)
+        private void bt_TotalSales_Click_1(object sender, EventArgs e)
         {
             uxResults.Text = "";
             string movie = Interaction.InputBox("Movie to search for: ");
