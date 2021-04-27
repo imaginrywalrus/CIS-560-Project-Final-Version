@@ -85,5 +85,18 @@ namespace ApplicationForm
                 uxResults.AppendText(Environment.NewLine);
             }
         }
+
+        private void bt_MovieReviews_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string genre = Interaction.InputBox("Genre to search for: ");
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            IReadOnlyList<Movie> movie = a.(genre);
+            foreach (Movie i in movie)
+            {
+                uxResults.Text += i.MovieName;
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
     }
 }

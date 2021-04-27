@@ -34,6 +34,14 @@ namespace ApplicationForm
             this.bt_ActorSalary = new System.Windows.Forms.Button();
             this.bt_DirectorMovies = new System.Windows.Forms.Button();
             this.bt_GenreMovies = new System.Windows.Forms.Button();
+            this.bt_MovieReviews = new System.Windows.Forms.Button();
+            this.bt_ScoreReview = new System.Windows.Forms.Button();
+            this.bt_ActorGenreMovies = new System.Windows.Forms.Button();
+            this.bt_stateCinemas = new System.Windows.Forms.Button();
+            this.bt_TotalSales = new System.Windows.Forms.Button();
+            this.bt_ActorInCommon = new System.Windows.Forms.Button();
+            this.bt_goodReview = new System.Windows.Forms.Button();
+            this.bt_ShowingInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bt_ActorMovie
@@ -88,11 +96,92 @@ namespace ApplicationForm
             this.bt_GenreMovies.UseVisualStyleBackColor = true;
             this.bt_GenreMovies.Click += new System.EventHandler(this.bt_GenreMovies_Click);
             // 
+            // bt_MovieReviews
+            // 
+            this.bt_MovieReviews.Location = new System.Drawing.Point(191, 113);
+            this.bt_MovieReviews.Name = "bt_MovieReviews";
+            this.bt_MovieReviews.Size = new System.Drawing.Size(100, 23);
+            this.bt_MovieReviews.TabIndex = 5;
+            this.bt_MovieReviews.Text = "MovieReviews";
+            this.bt_MovieReviews.UseVisualStyleBackColor = true;
+            this.bt_MovieReviews.Click += new System.EventHandler(this.bt_MovieReviews_Click);
+            // 
+            // bt_ScoreReview
+            // 
+            this.bt_ScoreReview.Location = new System.Drawing.Point(348, 113);
+            this.bt_ScoreReview.Name = "bt_ScoreReview";
+            this.bt_ScoreReview.Size = new System.Drawing.Size(100, 23);
+            this.bt_ScoreReview.TabIndex = 6;
+            this.bt_ScoreReview.Text = "ScoreReview";
+            this.bt_ScoreReview.UseVisualStyleBackColor = true;
+            // 
+            // bt_ActorGenreMovies
+            // 
+            this.bt_ActorGenreMovies.Location = new System.Drawing.Point(348, 203);
+            this.bt_ActorGenreMovies.Name = "bt_ActorGenreMovies";
+            this.bt_ActorGenreMovies.Size = new System.Drawing.Size(150, 23);
+            this.bt_ActorGenreMovies.TabIndex = 7;
+            this.bt_ActorGenreMovies.Text = "ActorGenreMovies";
+            this.bt_ActorGenreMovies.UseVisualStyleBackColor = true;
+            // 
+            // bt_stateCinemas
+            // 
+            this.bt_stateCinemas.Location = new System.Drawing.Point(17, 203);
+            this.bt_stateCinemas.Name = "bt_stateCinemas";
+            this.bt_stateCinemas.Size = new System.Drawing.Size(100, 23);
+            this.bt_stateCinemas.TabIndex = 7;
+            this.bt_stateCinemas.Text = "StateCinemas";
+            this.bt_stateCinemas.UseVisualStyleBackColor = true;
+            // 
+            // bt_TotalSales
+            // 
+            this.bt_TotalSales.Location = new System.Drawing.Point(191, 203);
+            this.bt_TotalSales.Name = "bt_TotalSales";
+            this.bt_TotalSales.Size = new System.Drawing.Size(100, 23);
+            this.bt_TotalSales.TabIndex = 8;
+            this.bt_TotalSales.Text = "TotalSales";
+            this.bt_TotalSales.UseVisualStyleBackColor = true;
+            // 
+            // bt_ActorInCommon
+            // 
+            this.bt_ActorInCommon.Location = new System.Drawing.Point(12, 299);
+            this.bt_ActorInCommon.Name = "bt_ActorInCommon";
+            this.bt_ActorInCommon.Size = new System.Drawing.Size(100, 23);
+            this.bt_ActorInCommon.TabIndex = 9;
+            this.bt_ActorInCommon.Text = "ActorInCommon";
+            this.bt_ActorInCommon.UseVisualStyleBackColor = true;
+            // 
+            // bt_goodReview
+            // 
+            this.bt_goodReview.Location = new System.Drawing.Point(191, 299);
+            this.bt_goodReview.Name = "bt_goodReview";
+            this.bt_goodReview.Size = new System.Drawing.Size(100, 33);
+            this.bt_goodReview.TabIndex = 10;
+            this.bt_goodReview.Text = "goodReview";
+            this.bt_goodReview.UseVisualStyleBackColor = true;
+            // 
+            // bt_ShowingInfo
+            // 
+            this.bt_ShowingInfo.Location = new System.Drawing.Point(348, 299);
+            this.bt_ShowingInfo.Name = "bt_ShowingInfo";
+            this.bt_ShowingInfo.Size = new System.Drawing.Size(100, 23);
+            this.bt_ShowingInfo.TabIndex = 11;
+            this.bt_ShowingInfo.Text = "ShowingInfo";
+            this.bt_ShowingInfo.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.bt_ShowingInfo);
+            this.Controls.Add(this.bt_goodReview);
+            this.Controls.Add(this.bt_ActorInCommon);
+            this.Controls.Add(this.bt_TotalSales);
+            this.Controls.Add(this.bt_stateCinemas);
+            this.Controls.Add(this.bt_ActorGenreMovies);
+            this.Controls.Add(this.bt_ScoreReview);
+            this.Controls.Add(this.bt_MovieReviews);
             this.Controls.Add(this.bt_GenreMovies);
             this.Controls.Add(this.bt_DirectorMovies);
             this.Controls.Add(this.bt_ActorSalary);
@@ -113,6 +202,14 @@ namespace ApplicationForm
         private System.Windows.Forms.Button bt_ActorSalary;
         private System.Windows.Forms.Button bt_DirectorMovies;
         private System.Windows.Forms.Button bt_GenreMovies;
+        private System.Windows.Forms.Button bt_MovieReviews;
+        private System.Windows.Forms.Button bt_ScoreReview;
+        private System.Windows.Forms.Button bt_ActorGenreMovies;
+        private System.Windows.Forms.Button bt_stateCinemas;
+        private System.Windows.Forms.Button bt_TotalSales;
+        private System.Windows.Forms.Button bt_ActorInCommon;
+        private System.Windows.Forms.Button bt_goodReview;
+        private System.Windows.Forms.Button bt_ShowingInfo;
     }
 }
 
