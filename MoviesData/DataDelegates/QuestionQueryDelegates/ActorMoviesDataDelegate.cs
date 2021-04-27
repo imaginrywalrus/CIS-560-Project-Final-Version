@@ -30,12 +30,12 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
 
         public override IReadOnlyList<Movie> Translate(SqlCommand command, IDataRowReader reader)
         {
-            if (!reader.Read())
+            /*
+             * if (!reader.Read())
             {
                 throw new RecordNotFoundException((lastName + ", " + firstName).ToString());
             }
-
-
+            */
             var movies = new List<Movie>();
 
             while (reader.Read())

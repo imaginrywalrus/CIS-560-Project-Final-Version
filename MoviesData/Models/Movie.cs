@@ -34,10 +34,5 @@ namespace MoviesData.Models
             //CreatedOn = createdOn;
             //UpdatedOn = updatedOn;
         }
-
-        public override string ToString()
-        {
-            return MovieName + ", " + Genre1 + ", " + Genre2 + ", " + Genre3 + ", " + ReleaseDate.ToString() + ", " + CostOfProduction.ToString() + "\n";
-        }
     }
 }

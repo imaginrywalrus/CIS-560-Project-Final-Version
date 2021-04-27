@@ -41,7 +41,8 @@ namespace ApplicationForm
 
             foreach (Movie i in movie)
             {
-                uxResults.Text += i.ToString();
+                uxResults.Text += i.MovieName;
+                uxResults.Text += "\n";
             }
         }
 
