@@ -4,7 +4,7 @@ CREATE OR ALTER PROCEDURE Movies.DirectorMovies
 AS
 
 -- Show all movies a given director worked on
-SELECT M.MovieName
+SELECT *
 FROM Movies.Movie M
     INNER JOIN Movies.MovieDirectors MD ON M.MovieID = MD.MovieID
     INNER JOIN Movies.Directors D ON D.DirectorID = MD.DirectorID

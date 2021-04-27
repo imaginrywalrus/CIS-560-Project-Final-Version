@@ -57,5 +57,20 @@ namespace ApplicationForm
             double salary = a.ActorTotalSalary(firstName, lastName);
             uxResults.Text += salary.ToString();
         }
+
+        private void bt_DirectorMovies_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string firstName = Interaction.InputBox("First name of the director: ");
+
+            string lastName = Interaction.InputBox("Last name of the director: ");
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            IReadOnlyList<Movie> movie = a.DirectorMovies(firstName, lastName);
+            foreach (Movie i in movie)
+            {
+                uxResults.Text += i.MovieName;
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
     }
 }

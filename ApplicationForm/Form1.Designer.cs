@@ -32,6 +32,7 @@ namespace ApplicationForm
             this.bt_ActorMovie = new System.Windows.Forms.Button();
             this.uxResults = new System.Windows.Forms.TextBox();
             this.bt_ActorSalary = new System.Windows.Forms.Button();
+            this.bt_DirectorMovies = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bt_ActorMovie
@@ -54,7 +55,7 @@ namespace ApplicationForm
             // 
             // bt_ActorSalary
             // 
-            this.bt_ActorSalary.Location = new System.Drawing.Point(225, 301);
+            this.bt_ActorSalary.Location = new System.Drawing.Point(143, 13);
             this.bt_ActorSalary.Name = "bt_ActorSalary";
             this.bt_ActorSalary.Size = new System.Drawing.Size(75, 23);
             this.bt_ActorSalary.TabIndex = 2;
@@ -62,11 +63,22 @@ namespace ApplicationForm
             this.bt_ActorSalary.UseVisualStyleBackColor = true;
             this.bt_ActorSalary.Click += new System.EventHandler(this.bt_ActorSalary_Click);
             // 
+            // bt_DirectorMovies
+            // 
+            this.bt_DirectorMovies.Location = new System.Drawing.Point(261, 13);
+            this.bt_DirectorMovies.Name = "bt_DirectorMovies";
+            this.bt_DirectorMovies.Size = new System.Drawing.Size(101, 23);
+            this.bt_DirectorMovies.TabIndex = 3;
+            this.bt_DirectorMovies.Text = "DirectorMovies";
+            this.bt_DirectorMovies.UseVisualStyleBackColor = true;
+            this.bt_DirectorMovies.Click += new System.EventHandler(this.bt_DirectorMovies_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bt_DirectorMovies);
             this.Controls.Add(this.bt_ActorSalary);
             this.Controls.Add(this.uxResults);
             this.Controls.Add(this.bt_ActorMovie);
@@ -82,6 +94,7 @@ namespace ApplicationForm
         private System.Windows.Forms.Button bt_ActorMovie;
         private System.Windows.Forms.TextBox uxResults;
         private System.Windows.Forms.Button bt_ActorSalary;
+        private System.Windows.Forms.Button bt_DirectorMovies;
     }
 }
 

@@ -30,11 +30,12 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
 
         public override IReadOnlyList<Movie> Translate(SqlCommand command, IDataRowReader reader)
         {
+            /*
             if (!reader.Read())
             {
                 throw new RecordNotFoundException((lastName + ", " + firstName).ToString());
             }
-
+            */
 
             var movies = new List<Movie>();
 
@@ -47,7 +48,7 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
                    reader.GetString("Genre2"),
                    reader.GetString("Genre3"),
                    reader.GetDateTime("ReleaseDate"),
-                   reader.GetValue<float>("CostOfProduction")
+                   reader.GetDouble("CostOfProduction")
                    /*
                    reader.GetString("IsRemoved"),
                    reader.GetString("CreatedOn"),
