@@ -27,9 +27,9 @@ namespace MoviesData
             return executor.ExecuteReader(d);
         }
 
-        public IReadOnlyList<Movie> GenreMovies(string Genre1, string Genre2, string Genre3)
+        public IReadOnlyList<Movie> GenreMovies(string Genre)
         {
-            var d = new GenreMoviesDataDelegate(Genre1, Genre2, Genre3);
+            var d = new GenreMoviesDataDelegate(Genre);
             return executor.ExecuteReader(d);
         }
 

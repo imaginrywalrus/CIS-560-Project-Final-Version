@@ -8,35 +8,27 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
 {
     internal class GenreMoviesDataDelegate : DataReaderDelegate<IReadOnlyList<Movie>>
     {
-        private readonly string genre1;
-        private readonly string genre2;
-        private readonly string genre3;
+        private readonly string genre;
 
-        public GenreMoviesDataDelegate(string genre1, string genre2, string genre3)
+        public GenreMoviesDataDelegate(string genre)
            : base("Movies.GenreMovies")
         {
-            this.genre1 = genre1;
-            this.genre2 = genre2;
-            this.genre3 = genre3;
+            this.genre = genre;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            var p1 = command.Parameters.Add("genre1", SqlDbType.NVarChar);
-            var p2 = command.Parameters.Add("genre2", SqlDbType.NVarChar);
-            var p3 = command.Parameters.Add("genre3", SqlDbType.NVarChar);
-            p1.Value = genre1;
-            p2.Value = genre2;
-            p3.Value = genre3;
+            var p1 = command.Parameters.Add("Genre", SqlDbType.NVarChar);
+            p1.Value = genre;
         }
 
         public override IReadOnlyList<Movie> Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
             {
-                throw new RecordNotFoundException((genre1 + ", " + genre2 + ", " + genre3).ToString());
+                throw new RecordNotFoundException((genre).ToString());
             }
 
             var movies = new List<Movie>();
@@ -49,7 +41,7 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
                    reader.GetString("Genre2"),
                    reader.GetString("Genre3"),
                    reader.GetDateTime("ReleaseDate"),
-                   reader.GetValue<float>("CostOfProduction")
+                   reader.GetDouble("CostOfProduction")
                    /*
                    reader.GetString("IsRemoved"),
                    reader.GetString("CreatedOn"),

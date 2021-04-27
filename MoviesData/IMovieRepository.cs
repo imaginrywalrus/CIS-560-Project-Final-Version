@@ -12,7 +12,7 @@ namespace MoviesData
 
         IReadOnlyList<Movie> DirectorMovies(string firstName, string lastName);
 
-        IReadOnlyList<Movie> GenreMovies(string Genre1, string Genre2, string Genre3);
+        IReadOnlyList<Movie> GenreMovies(string Genre);
 
         int TotalSales(string moviename);
 
