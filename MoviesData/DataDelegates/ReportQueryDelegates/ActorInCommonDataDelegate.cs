@@ -58,7 +58,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
                    reader.GetString("Genre2"),
                    reader.GetString("Genre3"),
                    reader.GetDateTime("ReleaseDate"),
-                   reader.GetValue<float>("CostOfProduction")
+                   reader.GetDouble("CostOfProduction")
                    /*
                    reader.GetString("IsRemoved"),
                    reader.GetString("CreatedOn"),

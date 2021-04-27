@@ -21,6 +21,7 @@ SELECT
     M.ReleaseDate AS ReleaseDate,
     M.CostOfProduction AS CostOfProduction,
     COUNT(DISTINCT R.Review) AS TotalReviews,
+    R.Review AS Review,
     R.Rating,
     R.ReviewSite
 FROM Movies.Actors A

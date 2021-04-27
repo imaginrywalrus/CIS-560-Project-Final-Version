@@ -16,6 +16,6 @@ namespace MoviesData
 
         int TotalSales(string moviename);
 
-        IReadOnlyList<(Movie, int, int, string)> ActorGenreMovies(string firstName, string lastName, string genre, int minScore, int maxScore);
+        IReadOnlyList<(Movie, int, int)> ActorGenreMovies(string firstName, string lastName, string genre, int minScore, int maxScore);
     }
 }

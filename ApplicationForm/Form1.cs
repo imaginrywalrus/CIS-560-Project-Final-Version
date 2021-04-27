@@ -128,5 +128,42 @@ namespace ApplicationForm
             uxResults.Text += total;
             uxResults.AppendText(Environment.NewLine);
         }
+
+        private void bt_ActorInCommon_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string firstName = Interaction.InputBox("First name of the actor: ");
+
+            string lastName = Interaction.InputBox("Last name of the actor: ");
+            SqlActorRepository a = new SqlActorRepository(connectionString);
+            IReadOnlyList<(Actor, Actor, Movie)> commonList = a.ActorInCommon(firstName, lastName);
+            foreach ((Actor, Actor, Movie) triple in commonList)
+            {
+                uxResults.Text += triple.Item2.FirstName + " " + triple.Item2.LastName + " in ";
+                uxResults.Text += triple.Item3.MovieName;
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
+
+        private void bt_ActorGenreMovies_Click(object sender, EventArgs e)
+        {
+            //For a given actor, show all movies they were in that was a certain genre and in a given range of review scores along with
+            uxResults.Text = "";
+            string firstName = Interaction.InputBox("First name of the actor: ");
+
+            string lastName = Interaction.InputBox("Last name of the actor: ");
+            string genre = Interaction.InputBox("Genre to search for: ");
+            int ratingMin = Convert.ToInt32(Interaction.InputBox("Minimum rating to allow: "));
+            int ratingMax = Convert.ToInt32(Interaction.InputBox("Maximum rating to allow: "));
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            IReadOnlyList<(Movie, int, int)> reviewList = a.ActorGenreMovies(firstName, lastName, genre, ratingMin, ratingMax);
+            foreach ((Movie, int, int) quin in reviewList)
+            {
+                uxResults.Text += quin.Item1.MovieName;
+                uxResults.Text += quin.Item2 + ", ";
+                uxResults.Text += quin.Item3;
+                uxResults.AppendText(Environment.NewLine);
+            }
+        }
     }
 }
