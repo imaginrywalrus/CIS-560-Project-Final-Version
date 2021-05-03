@@ -15,6 +15,12 @@ namespace MoviesData
             executor = new SqlCommandExecutor(connectionString);
         }
 
+        public IReadOnlyList<Actor> DisplayActorInfo()
+        {
+            var d = new DisplayActorInfoDataDelegate();
+            return executor.ExecuteReader(d);
+        }
+
         public IReadOnlyList<(Actor, Actor, Movie)> ActorInCommon(string firstName, string lastName)
         {
             var d = new ActorInCommonDataDelegate(firstName, lastName);

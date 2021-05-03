@@ -5,6 +5,8 @@ namespace MoviesData
 {
     public interface IReviewRepository
     {
+        IReadOnlyList<Review> DisplayReviewInfo();
+
         IReadOnlyList<Review> MovieReviews(string movieName);
 
         IReadOnlyList<Review> ScoreReviews(int score);

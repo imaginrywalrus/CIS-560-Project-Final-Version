@@ -4,24 +4,21 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace MoviesData.DataDelegates.QuestionQueryDelegates
 {
-    internal class StateCinemasDataDelegate : DataReaderDelegate<IReadOnlyList<Cinema>>
+    internal class DisplayCinemaDataDelegate : DataReaderDelegate<IReadOnlyList<Cinema>>
     {
-        private readonly string state;
 
-        public StateCinemasDataDelegate(string state)
-           : base("Movies.StateCinemas")
+        public DisplayCinemaDataDelegate()
+            : base("Movies.DisplayCinemaInfo")
         {
-            this.state = state;
+
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-
-            var p1 = command.Parameters.Add("state", SqlDbType.NVarChar);
-            p1.Value = state;
         }
 
         public override IReadOnlyList<Cinema> Translate(SqlCommand command, IDataRowReader reader)
@@ -31,11 +28,11 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
                 return null;
             }
 
-            var theaters = new List<Cinema>();
+            var cinema = new List<Cinema>();
 
             while (reader.Read())
             {
-                Cinema addMovie = new Cinema(
+                Cinema addCinema = new Cinema(
                    reader.GetInt32("CinemaID"),
                    reader.GetString("State"),
                    reader.GetString("City"),
@@ -46,10 +43,10 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
                    reader.GetString("UpdatedOn")
                    */
                    );
-                theaters.Add(addMovie);
+                cinema.Add(addCinema);
             }
 
-            return theaters;
+            return cinema;
         }
     }
 }

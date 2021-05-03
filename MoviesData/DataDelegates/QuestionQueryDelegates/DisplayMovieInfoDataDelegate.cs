@@ -6,36 +6,25 @@ using System.Data.SqlClient;
 
 namespace MoviesData.DataDelegates.QuestionQueryDelegates
 {
-    internal class DirectorMoviesDataDelegate : DataReaderDelegate<IReadOnlyList<Movie>>
+    internal class DisplayMovieInfoDataDelegate : DataReaderDelegate<IReadOnlyList<Movie>>
     {
-        private readonly string firstName;
-        private readonly string lastName;
-
-        public DirectorMoviesDataDelegate(string firstName, string lastName)
-           : base("Movies.DirectorMovies")
+        public DisplayMovieInfoDataDelegate()
+            : base("Movies.DisplayMovieInfo")
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
+
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-
-            var p1 = command.Parameters.Add("firstName", SqlDbType.NVarChar);
-            var p2 = command.Parameters.Add("lastName", SqlDbType.NVarChar);
-            p1.Value = firstName;
-            p2.Value = lastName;
         }
 
         public override IReadOnlyList<Movie> Translate(SqlCommand command, IDataRowReader reader)
         {
-            
             if (!reader.HasRows())
             {
                 return null;
             }
-            
 
             var movies = new List<Movie>();
 
@@ -59,19 +48,6 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
             }
 
             return movies;
-
-            /*
-            return new Movie(reader.GetInt32("MovieID"),
-               reader.GetString("Genre1"),
-               reader.GetString("Genre2"),
-               reader.GetString("Genre3"),
-               reader.GetString("ReleaseDate"),
-               reader.GetValue<float>("CostOfProduction")
-               //reader.GetString("IsRemoved"),
-               //reader.GetString("CreatedOn"),
-               //reader.GetString("UpdatedOn")
-               );
-            */
         }
     }
 }

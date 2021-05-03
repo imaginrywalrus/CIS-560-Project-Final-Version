@@ -15,6 +15,12 @@ namespace MoviesData
             executor = new SqlCommandExecutor(connectionString);
         }
 
+        public IReadOnlyList<Review> DisplayReviewInfo()
+        {
+            var d = new DisplayReviewDataDelegate();
+            return executor.ExecuteReader(d);
+        }
+
         public IReadOnlyList<Review> MovieReviews(string movieName)
         {
             var d = new MovieReviewsDataDelegate(movieName);

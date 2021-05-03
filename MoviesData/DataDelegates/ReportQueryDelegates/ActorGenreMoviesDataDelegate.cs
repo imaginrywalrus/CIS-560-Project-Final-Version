@@ -48,7 +48,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
         {
             if (!reader.HasRows())
             {
-                throw new RecordNotFoundException((lastName + ", " + firstName + " in " + genre + ", " + ratingMin + " to " + ratingMax).ToString());
+                 return null;
             }
             var movies = new List<(Movie, int, int)>();
             while (reader.Read())
@@ -69,7 +69,6 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
                    );
                 int totalReviews = reader.GetInt32("TotalReviews");
                 int rating = reader.GetInt32("Rating");
-                //string ratingSite = reader.GetString("RatingSite");
                 movies.Add((addMovie, totalReviews, rating));
             }
             return movies;

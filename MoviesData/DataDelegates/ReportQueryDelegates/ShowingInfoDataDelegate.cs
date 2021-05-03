@@ -8,19 +8,26 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
 {
     internal class ShowingInfoDataDelegate : DataReaderDelegate<IReadOnlyList<(Cinema, string, double, double)>>
     {
-
-        public ShowingInfoDataDelegate()
+        private readonly string State;
+        public ShowingInfoDataDelegate(string state)
            : base("Movies.ShowingInfo")
         {
+            this.State = state;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
+            var p1 = command.Parameters.Add("state", SqlDbType.NVarChar);
+            p1.Value = State;
         }
 
         public override IReadOnlyList<(Cinema, string, double, double)> Translate(SqlCommand command, IDataRowReader reader)
-        { 
+        {
+            if (!reader.HasRows())
+            {
+                return null;
+            }
             var showingInfo = new List<(Cinema, string, double, double)>();
             while (reader.Read())
             {

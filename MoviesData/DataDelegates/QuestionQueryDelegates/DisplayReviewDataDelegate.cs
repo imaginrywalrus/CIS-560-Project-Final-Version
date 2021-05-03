@@ -6,38 +6,31 @@ using System.Data.SqlClient;
 
 namespace MoviesData.DataDelegates.QuestionQueryDelegates
 {
-    internal class MovieReviewsDataDelegate : DataReaderDelegate<IReadOnlyList<Review>>
+    internal class DisplayReviewDataDelegate : DataReaderDelegate<IReadOnlyList<Review>>
     {
-        private readonly string movieName;
-
-        public MovieReviewsDataDelegate(string movieName)
-           : base("Movies.MovieReviews")
+        public DisplayReviewDataDelegate()
+            : base("Movies.DisplayReviewInfo")
         {
-            this.movieName = movieName;
+
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-
-            var p1 = command.Parameters.Add("movieName", SqlDbType.NVarChar);
-            p1.Value = movieName;
         }
 
         public override IReadOnlyList<Review> Translate(SqlCommand command, IDataRowReader reader)
         {
-            
             if (!reader.HasRows())
             {
                 return null;
             }
-           
 
-            var reviews = new List<Review>();
+            var review = new List<Review>();
 
             while (reader.Read())
             {
-                Review addMovie = new Review(
+                Review addReview = new Review(
                    reader.GetInt32("ReviewID"),
                    reader.GetInt32("MovieID"),
                    reader.GetInt32("ReviewerID"),
@@ -50,10 +43,10 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
                    reader.GetString("UpdatedOn")
                    */
                    );
-                reviews.Add(addMovie);
+                review.Add(addReview);
             }
 
-            return reviews;
+            return review;
         }
     }
 }

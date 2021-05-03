@@ -8,6 +8,8 @@ namespace MoviesData
 {
     public interface IMovieRepository
     {
+        IReadOnlyList<Movie> DisplayMovieInfo();
+
         IReadOnlyList<Movie> ActorMovie(string firstName, string lastName);
 
         IReadOnlyList<Movie> DirectorMovies(string firstName, string lastName);

@@ -30,14 +30,17 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
 
         public override double Translate(SqlCommand command, IDataRowReader reader)
         {
-            
+            double salary = 0;
             if (!reader.HasRows())
             {
-                throw new RecordNotFoundException((lastName + ", " + firstName).ToString());
+                return -1;
             }
-           
 
-            return reader.GetDouble("TotalSalary");
+            while (reader.Read())
+            {
+                salary =  reader.GetDouble("TotalSalary");
+            }
+            return salary;
         }
     }
 }

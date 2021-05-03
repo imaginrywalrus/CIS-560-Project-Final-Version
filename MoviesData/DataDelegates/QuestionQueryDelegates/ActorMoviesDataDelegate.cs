@@ -33,7 +33,7 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
             
             if (!reader.HasRows())
             {
-                throw new RecordNotFoundException((lastName + ", " + firstName).ToString());
+                return null;
             }
             
             var movies = new List<Movie>();

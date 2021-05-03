@@ -32,43 +32,46 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
         {
             if (!reader.HasRows())
             {
-                throw new RecordNotFoundException((lastName + ", " + firstName).ToString());
+                return null;
             }
-
-            var actorMoviePair = new List<(Actor, Actor, Movie)>();
-
-            while (reader.Read())
+            else
             {
-                Actor addStartActor = new Actor(
-                    reader.GetInt32("StartActorID"),
-                    reader.GetString("StartFirstName"),
-                    reader.GetString("StartMiddleName"),
-                    reader.GetString("StartLastName")
-                    );
-                Actor addEndActor = new Actor(
-                    reader.GetInt32("EndActorID"),
-                    reader.GetString("EndFirstName"),
-                    reader.GetString("EndMiddleName"),
-                    reader.GetString("EndLastName")
-                    );
-                Movie addMovie = new Movie(
-                   reader.GetInt32("MovieID"),
-                   reader.GetString("MovieName"),
-                   reader.GetString("Genre1"),
-                   reader.GetString("Genre2"),
-                   reader.GetString("Genre3"),
-                   reader.GetDateTime("ReleaseDate"),
-                   reader.GetDouble("CostOfProduction")
-                   /*
-                   reader.GetString("IsRemoved"),
-                   reader.GetString("CreatedOn"),
-                   reader.GetString("UpdatedOn")
-                   */
-                   );
-                actorMoviePair.Add((addStartActor, addEndActor, addMovie));
-            }
 
-            return actorMoviePair;
+                var actorMoviePair = new List<(Actor, Actor, Movie)>();
+
+                while (reader.Read())
+                {
+                    Actor addStartActor = new Actor(
+                        reader.GetInt32("StartActorID"),
+                        reader.GetString("StartFirstName"),
+                        reader.GetString("StartMiddleName"),
+                        reader.GetString("StartLastName")
+                        );
+                    Actor addEndActor = new Actor(
+                        reader.GetInt32("EndActorID"),
+                        reader.GetString("EndFirstName"),
+                        reader.GetString("EndMiddleName"),
+                        reader.GetString("EndLastName")
+                        );
+                    Movie addMovie = new Movie(
+                       reader.GetInt32("MovieID"),
+                       reader.GetString("MovieName"),
+                       reader.GetString("Genre1"),
+                       reader.GetString("Genre2"),
+                       reader.GetString("Genre3"),
+                       reader.GetDateTime("ReleaseDate"),
+                       reader.GetDouble("CostOfProduction")
+                       /*
+                       reader.GetString("IsRemoved"),
+                       reader.GetString("CreatedOn"),
+                       reader.GetString("UpdatedOn")
+                       */
+                       );
+                    actorMoviePair.Add((addStartActor, addEndActor, addMovie));
+                }
+
+                return actorMoviePair;
+            }
         }
     }
 }

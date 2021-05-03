@@ -8,5 +8,7 @@ namespace MoviesData
     {
         double ActorTotalSalary(string firstName, string lastName);
         IReadOnlyList<(Actor, Actor, Movie)> ActorInCommon(string firstName, string lastName);
+
+        IReadOnlyList<Actor> DisplayActorInfo();
     }
 }

@@ -7,8 +7,10 @@ namespace MoviesData
 {
     public interface ICinemaRepository
     {
+        IReadOnlyList<Cinema> DisplayCinemaInfo();
+
         IReadOnlyList<Cinema> StateCinemas(string state);
 
-        IReadOnlyList<(Cinema, string, double, double)> ShowingInfo();
+        IReadOnlyList<(Cinema, string, double, double)> ShowingInfo(string state);
     }
 }

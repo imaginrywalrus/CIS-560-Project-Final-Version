@@ -28,7 +28,7 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
         {
             if (!reader.HasRows())
             {
-                throw new RecordNotFoundException(score.ToString());
+                return null;
             }
 
             var reviews = new List<Review>();

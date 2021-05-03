@@ -44,6 +44,10 @@
     <Compile Include="DataDelegates\QuestionQueryDelegates\ActorMoviesDataDelegate.cs" />
     <Compile Include="DataDelegates\QuestionQueryDelegates\ActorTotalSalaryDataDelegate.cs" />
     <Compile Include="DataDelegates\QuestionQueryDelegates\DirectorMoviesDataDelegate.cs" />
+    <Compile Include="DataDelegates\QuestionQueryDelegates\DisplayActorInfoDataDelegate.cs" />
+    <Compile Include="DataDelegates\QuestionQueryDelegates\DisplayCinemaDataDelegate.cs" />
+    <Compile Include="DataDelegates\QuestionQueryDelegates\DisplayMovieInfoDataDelegate.cs" />
+    <Compile Include="DataDelegates\QuestionQueryDelegates\DisplayReviewDataDelegate.cs" />
     <Compile Include="DataDelegates\QuestionQueryDelegates\GenreMoviesDataDelegate.cs" />
     <Compile Include="DataDelegates\QuestionQueryDelegates\MovieReviewsDataDelegate.cs" />
     <Compile Include="DataDelegates\QuestionQueryDelegates\ScoreReviewsDataDelegate.cs" />
@@ -76,6 +80,10 @@
     <Content Include="SQL\Procedures\QuestionQueries\Movies.ActorMovies.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.ActorTotalSalary.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.DirectorMovies.sql" />
+    <Content Include="SQL\Procedures\QuestionQueries\Movies.DisplayActorInfo.sql" />
+    <Content Include="SQL\Procedures\QuestionQueries\Movies.DisplayCinemaInfo.sql" />
+    <Content Include="SQL\Procedures\QuestionQueries\Movies.DisplayMovieInfo.sql" />
+    <Content Include="SQL\Procedures\QuestionQueries\Movies.DisplayReviewInfo.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.GenreMovies.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.MovieReviews.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.ScoreReviews.sql" />

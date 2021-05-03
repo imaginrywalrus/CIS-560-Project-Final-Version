@@ -27,7 +27,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
         {
             if (!reader.HasRows())
             {
-                throw new RecordNotFoundException((rating).ToString());
+                return null;
             }
 
             var reviewMoviePair = new List<(Review, Movie, int[])>();

@@ -29,7 +29,7 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
             
             if (!reader.HasRows())
             {
-                throw new RecordNotFoundException((genre).ToString());
+                return null;
             }
             
 
