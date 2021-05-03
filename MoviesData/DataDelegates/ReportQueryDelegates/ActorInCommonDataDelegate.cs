@@ -30,7 +30,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
 
         public override IReadOnlyList<(Actor, Actor, Movie)> Translate(SqlCommand command, IDataRowReader reader)
         {
-            if (!reader.Read())
+            if (!reader.HasRows())
             {
                 throw new RecordNotFoundException((lastName + ", " + firstName).ToString());
             }

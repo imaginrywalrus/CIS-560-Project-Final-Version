@@ -20,7 +20,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
         }
 
         public override IReadOnlyList<(Cinema, string, double, double)> Translate(SqlCommand command, IDataRowReader reader)
-        {
+        { 
             var showingInfo = new List<(Cinema, string, double, double)>();
             while (reader.Read())
             {

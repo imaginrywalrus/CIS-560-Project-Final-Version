@@ -9,6 +9,6 @@ namespace MoviesData
 
         IReadOnlyList<Review> ScoreReviews(int score);
 
-        IReadOnlyList<(Review, Movie, int, int, int, int, int, int, int)> GoodReview(int score);
+        IReadOnlyList<(Review, Movie, int[])> GoodReview(int score);
     }
 }
