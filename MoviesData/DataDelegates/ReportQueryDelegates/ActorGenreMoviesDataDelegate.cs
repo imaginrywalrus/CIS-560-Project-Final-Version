@@ -46,7 +46,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
 
         public override IReadOnlyList<(Movie, int, int)> Translate(SqlCommand command, IDataRowReader reader)
         {
-            if (!reader.Read())
+            if (!reader.HasRows())
             {
                 throw new RecordNotFoundException((lastName + ", " + firstName + " in " + genre + ", " + ratingMin + " to " + ratingMax).ToString());
             }

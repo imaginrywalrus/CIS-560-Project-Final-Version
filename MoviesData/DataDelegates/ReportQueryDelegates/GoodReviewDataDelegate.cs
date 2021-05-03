@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace MoviesData.DataDelegates.ReportQueryDelegates
 {
-    internal class GoodReviewDataDelegate : DataReaderDelegate<IReadOnlyList<(Review, Movie, int, int, int, int, int, int, int)>>
+    internal class GoodReviewDataDelegate : DataReaderDelegate<IReadOnlyList<(Review, Movie, int[])>>
     {
         private readonly int rating;
 
@@ -23,14 +23,14 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             p3.Value = rating;
         }
 
-        public override IReadOnlyList<(Review, Movie, int, int, int, int, int, int, int)> Translate(SqlCommand command, IDataRowReader reader)
+        public override IReadOnlyList<(Review, Movie, int[])> Translate(SqlCommand command, IDataRowReader reader)
         {
-            if (!reader.Read())
+            if (!reader.HasRows())
             {
                 throw new RecordNotFoundException((rating).ToString());
             }
 
-            var reviewMoviePair = new List<(Review, Movie, int, int, int, int, int, int, int)>();
+            var reviewMoviePair = new List<(Review, Movie, int[])>();
 
             while (reader.Read())
             {
@@ -56,14 +56,15 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
                    reader.GetString("UpdatedOn")
                    */
                    );
-                reviewMoviePair.Add((addReview, addMovie, 
-                    reader.GetInt32("DramaCount"), 
-                    reader.GetInt32("CrimeCount"), 
-                    reader.GetInt32("ActionCount"),
-                    reader.GetInt32("BiographyCount"),
-                    reader.GetInt32("HistoryCount"),
-                    reader.GetInt32("AdventureCount"),
-                    reader.GetInt32("WesternCount")));
+                int[] x = new int[7];
+                x[0] = reader.GetInt32("DramaCount");
+                x[1] = reader.GetInt32("CrimeCount");
+                x[2] = reader.GetInt32("ActionCount");
+                x[3] = reader.GetInt32("BiographyCount");
+                x[4] = reader.GetInt32("HistoryCount");
+                x[5] = reader.GetInt32("AdventureCount");
+                x[6] = reader.GetInt32("WesternCount");
+                reviewMoviePair.Add((addReview, addMovie, x));
             }
 
             return reviewMoviePair;

@@ -26,12 +26,12 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
 
         public override IReadOnlyList<Review> Translate(SqlCommand command, IDataRowReader reader)
         {
-            /*
-            if (!reader.Read())
+            
+            if (!reader.HasRows())
             {
                 throw new RecordNotFoundException(movieName.ToString());
             }
-            */
+           
 
             var reviews = new List<Review>();
 

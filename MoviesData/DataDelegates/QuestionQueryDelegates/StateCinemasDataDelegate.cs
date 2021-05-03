@@ -26,7 +26,7 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
 
         public override IReadOnlyList<Cinema> Translate(SqlCommand command, IDataRowReader reader)
         {
-            if (!reader.Read())
+            if (!reader.HasRows())
             {
                 throw new RecordNotFoundException(state.ToString());
             }

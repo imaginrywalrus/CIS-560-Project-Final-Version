@@ -21,6 +21,11 @@ namespace DataAccess
             return reader.Read();
         }
 
+        public bool HasRows()
+        {
+            return reader.HasRows;
+        }
+
         public int GetInt32(string name)
         {
             return GetValue(name, reader.GetInt32);

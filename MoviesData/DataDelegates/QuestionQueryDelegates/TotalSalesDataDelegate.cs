@@ -27,7 +27,7 @@ namespace MoviesData.DataDelegates.QuestionQueryDelegates
         public override double Translate(SqlCommand command, IDataRowReader reader)
         {
             
-            if (!reader.Read())
+            if (!reader.HasRows())
             {
                 throw new RecordNotFoundException(movieName.ToString());
             }
