@@ -149,46 +149,28 @@ namespace ApplicationForm
         private void bt_ScoreReview_Click_1(object sender, EventArgs e)
         {
             uxResults.Text = "";
-            string state = Interaction.InputBox("State to search for: ");
-            SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
-            IReadOnlyList<Cinema> cinemas = a.StateCinemas(state);
-
-            Cinema c = new Cinema(1, "kansas", "manhattan", "111 This street");
-            List<Cinema> cinemas = new List<Cinema>();
-            cinemas.Add(c);
+            string genre = Interaction.InputBox("Score To filter: ");
+            SqlReviewRepository a = new SqlReviewRepository(connectionString);
+            IReadOnlyList<Review> review = a.ScoreReviews(Convert.ToInt32(genre));
 
             uxResults.Text += "Result\t";
-            uxResults.Text += "State\t\t";
-            uxResults.Text += "City\t\t";
-            uxResults.Text += "Address\t";
+            uxResults.Text += "ReviewID\t ";
+            uxResults.Text += "ReviewerID\t";
+            uxResults.Text += "Rating\t";
+            uxResults.Text += "ReviewSite\t";
             uxResults.AppendText(Environment.NewLine);
             uxResults.AppendText(Environment.NewLine);
             int x = 1;
-            foreach (Cinema i in cinemas)
+            foreach (Review i in review)
             {
                 uxResults.Text += x.ToString() + "\t";
-                uxResults.Text += i.State + "\t\t";
-                uxResults.Text += i.City + "\t";
-                uxResults.Text += i.Address + "\t";
+                uxResults.Text += i.ReviewID + "\t ";
+                uxResults.Text += i.ReviewerID + "\t\t";
+                uxResults.Text += i.Rating + "\t";
+                uxResults.Text += i.ReviewSite + "\t";
                 uxResults.AppendText(Environment.NewLine);
                 x++;
             }
-        }
-
-        private void bt_TotalSales_Click_1(object sender, EventArgs e)
-        {
-            uxResults.Text = "";
-            string movie = Interaction.InputBox("Movie to search for: ");
-            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
-            double total = a.TotalSales(movie);
-            uxResults.Text += "Result\t";
-            uxResults.Text += "TotalSales\t";
-            uxResults.AppendText(Environment.NewLine);
-            uxResults.AppendText(Environment.NewLine);
-
-            uxResults.Text += "1\t";
-            uxResults.Text += total;
-            uxResults.AppendText(Environment.NewLine);
         }
 
         private void bt_ActorInCommon_Click(object sender, EventArgs e)
@@ -317,31 +299,46 @@ namespace ApplicationForm
             }
         }
 
-        private void bt_ScoreReview_Click(object sender, EventArgs e)
+        private void bt_stateCinemas_Click(object sender, EventArgs e)
         {
             uxResults.Text = "";
-            string genre = Interaction.InputBox("Score To filter: ");
-            SqlReviewRepository a = new SqlReviewRepository(connectionString);
-            IReadOnlyList<Review> review = a.ScoreReviews(Convert.ToInt32(genre));
+            string state = Interaction.InputBox("State to search for: ");
+            SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
+            IReadOnlyList<Cinema> cinemas = a.StateCinemas(state);
 
             uxResults.Text += "Result\t";
-            uxResults.Text += "ReviewID\t ";
-            uxResults.Text += "ReviewerID\t";
-            uxResults.Text += "Rating\t";
-            uxResults.Text += "ReviewSite\t";
+            uxResults.Text += "State\t\t";
+            uxResults.Text += "City\t\t";
+            uxResults.Text += "Address\t";
             uxResults.AppendText(Environment.NewLine);
             uxResults.AppendText(Environment.NewLine);
             int x = 1;
-            foreach (Review i in review)
+            foreach (Cinema i in cinemas)
             {
                 uxResults.Text += x.ToString() + "\t";
-                uxResults.Text += i.ReviewID + "\t ";
-                uxResults.Text += i.ReviewerID + "\t\t";
-                uxResults.Text += i.Rating + "\t";
-                uxResults.Text += i.ReviewSite + "\t";
+                uxResults.Text += i.State + "\t\t";
+                uxResults.Text += i.City + "\t";
+                uxResults.Text += i.Address + "\t";
                 uxResults.AppendText(Environment.NewLine);
                 x++;
             }
+
+        }
+
+        private void bt_TotalSales_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string movie = Interaction.InputBox("Movie to search for: ");
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            double total = a.TotalSales(movie);
+            uxResults.Text += "Result\t";
+            uxResults.Text += "TotalSales\t";
+            uxResults.AppendText(Environment.NewLine);
+            uxResults.AppendText(Environment.NewLine);
+
+            uxResults.Text += "1\t";
+            uxResults.Text += total;
+            uxResults.AppendText(Environment.NewLine);
         }
     }
 } 

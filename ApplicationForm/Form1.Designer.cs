@@ -136,6 +136,7 @@ namespace ApplicationForm
             this.bt_stateCinemas.TabIndex = 7;
             this.bt_stateCinemas.Text = "StateCinemas";
             this.bt_stateCinemas.UseVisualStyleBackColor = true;
+            this.bt_stateCinemas.Click += new System.EventHandler(this.bt_stateCinemas_Click);
             // 
             // bt_TotalSales
             // 
@@ -146,6 +147,7 @@ namespace ApplicationForm
             this.bt_TotalSales.TabIndex = 8;
             this.bt_TotalSales.Text = "TotalSales";
             this.bt_TotalSales.UseVisualStyleBackColor = true;
+            this.bt_TotalSales.Click += new System.EventHandler(this.bt_TotalSales_Click);
             // 
             // bt_ActorInCommon
             // 
