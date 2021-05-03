@@ -146,13 +146,12 @@ namespace ApplicationForm
             }
         }
 
-
-        private void bt_stateCinemas_Click(object sender, EventArgs e)
+        private void bt_ScoreReview_Click_1(object sender, EventArgs e)
         {
             uxResults.Text = "";
             string state = Interaction.InputBox("State to search for: ");
-            //SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
-            //IReadOnlyList<Cinema> cinemas = a.StateCinemas(state);
+            SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
+            IReadOnlyList<Cinema> cinemas = a.StateCinemas(state);
 
             Cinema c = new Cinema(1, "kansas", "manhattan", "111 This street");
             List<Cinema> cinemas = new List<Cinema>();
@@ -176,7 +175,7 @@ namespace ApplicationForm
             }
         }
 
-        private void bt_TotalSales_Click(object sender, EventArgs e)
+        private void bt_TotalSales_Click_1(object sender, EventArgs e)
         {
             uxResults.Text = "";
             string movie = Interaction.InputBox("Movie to search for: ");

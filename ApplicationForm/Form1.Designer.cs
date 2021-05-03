@@ -114,7 +114,7 @@ namespace ApplicationForm
             this.bt_ScoreReview.TabIndex = 6;
             this.bt_ScoreReview.Text = "ScoreReview";
             this.bt_ScoreReview.UseVisualStyleBackColor = true;
-            this.bt_ScoreReview.Click += new System.EventHandler(this.bt_ScoreReview_Click);
+            this.bt_ScoreReview.Click += new System.EventHandler(this.bt_ScoreReview_Click_1);
             // 
             // bt_ActorGenreMovies
             // 
@@ -136,7 +136,6 @@ namespace ApplicationForm
             this.bt_stateCinemas.TabIndex = 7;
             this.bt_stateCinemas.Text = "StateCinemas";
             this.bt_stateCinemas.UseVisualStyleBackColor = true;
-            this.bt_stateCinemas.Click += new System.EventHandler(this.bt_stateCinemas_Click);
             // 
             // bt_TotalSales
             // 
@@ -147,7 +146,6 @@ namespace ApplicationForm
             this.bt_TotalSales.TabIndex = 8;
             this.bt_TotalSales.Text = "TotalSales";
             this.bt_TotalSales.UseVisualStyleBackColor = true;
-            this.bt_TotalSales.Click += new System.EventHandler(this.bt_TotalSales_Click);
             // 
             // bt_ActorInCommon
             // 
