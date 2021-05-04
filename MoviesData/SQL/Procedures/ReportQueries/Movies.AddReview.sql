@@ -4,6 +4,7 @@ CREATE OR ALTER PROCEDURE Movies.AddReview
    @MovieName NVARCHAR(64),
    @Rating INT,
    @Review NVARCHAR(1024),
+   @ReviewSite NVARCHAR(32),
    @ReviewID INT OUTPUT
 AS
 
@@ -11,9 +12,9 @@ if exists (select * from Movies.Reviewer R where R.FirstName = @FirstName and R.
     UPDATE Movies.Reviewer
     SET
         UpdatedOn = SYSDATETIMEOFFSET()
-    WHERE R.FirstName = @FirstName and R.LastName = @LastName
+    WHERE FirstName = @FirstName and LastName = @LastName
 else
-    INSERT INTO Delegates ([FirstName],[LastName]) values(@FirstName, @LastName)
+    INSERT Movies.Reviewer([FirstName],[LastName]) values(@FirstName, @LastName)
 
 DECLARE @ReviewerID INT =
     (

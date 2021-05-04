@@ -91,6 +91,8 @@
     <Content Include="SQL\Procedures\QuestionQueries\Movies.TotalSales.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.ActorGenreMovies.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.ActorInCommon.sql" />
+    <Content Include="SQL\Procedures\ReportQueries\Movies.AddMovie.sql" />
+    <Content Include="SQL\Procedures\ReportQueries\Movies.AddReview.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.GoodReview.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.ShowingInfo.sql" />
     <Content Include="SQL\Schemas\Movies.sql" />
