@@ -24,6 +24,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             this.genre2 = genre2;
             this.genre3 = genre3;
             this.releaseDate = releaseDate;
+            this.costOfProduction = costOfProduction;
         }
 
         public override void PrepareCommand(SqlCommand command)

@@ -21,9 +21,9 @@ namespace MoviesData
             return executor.ExecuteReader(d);
         }
 
-        public Actor AddDirector(string firstName, string middleName, string lastName)
+        public Director AddDirector(string firstName, string middleName, string lastName)
         {
-            var d = new AddActorDataDelegate(firstName, middleName, lastName);
+            var d = new AddDirectorDataDelegate(firstName, middleName, lastName);
             return executor.ExecuteReader(d);
         }
 

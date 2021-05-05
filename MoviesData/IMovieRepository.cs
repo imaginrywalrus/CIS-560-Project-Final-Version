@@ -8,7 +8,7 @@ namespace MoviesData
 {
     public interface IMovieRepository
     {
-        bool AddMovie(string MovieName);
+        Movie AddMovie(string movieName, string genre1, string genre2, string genre3, DateTime releaseDate, double costOfProduction);
 
         IReadOnlyList<Movie> DisplayMovieInfo();
 

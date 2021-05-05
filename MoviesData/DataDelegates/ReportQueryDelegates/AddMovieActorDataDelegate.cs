@@ -9,8 +9,12 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
     internal class AddMovieActorDataDelegate : DataReaderDelegate<MovieActor>
     {
         private readonly double salary;
+        private readonly string firstName;
+        private readonly string lastName;
+        private readonly string movieName;
 
-        public AddMovieActorDataDelegate(float salary)
+
+        public AddMovieActorDataDelegate(float salary, string firstName, string lastName, string movieName)
            : base("Movies.AddMovieActor")
         {
             this.salary = salary;
@@ -22,6 +26,15 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
 
             var p = command.Parameters.Add("Salary", SqlDbType.Float);
             p.Value = salary;
+
+            p = command.Parameters.Add("FirstName", SqlDbType.Float);
+            p.Value = firstName;
+
+            p = command.Parameters.Add("LastName", SqlDbType.Float);
+            p.Value = lastName;
+
+            p = command.Parameters.Add("MovieName", SqlDbType.Float);
+            p.Value = movieName;
 
             p = command.Parameters.Add("ActorID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;

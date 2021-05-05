@@ -15,10 +15,10 @@ namespace MoviesData
             executor = new SqlCommandExecutor(connectionString);
         }
         
-        public bool AddMovie(string MovieName)
+        public Movie AddMovie(string movieName, string genre1, string genre2, string genre3, DateTime releaseDate, double costOfProduction)
         {
-            //var d = new AddMovieDataDelegate(MovieName);
-            return true;// executor.ExecuteReader(d);
+            var d = new AddMovieDataDelegate(movieName, genre1, genre2, genre3, releaseDate, costOfProduction);
+            return executor.ExecuteReader(d);
         }
 
         public IReadOnlyList<Movie> DisplayMovieInfo()

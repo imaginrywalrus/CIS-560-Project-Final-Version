@@ -147,10 +147,15 @@ namespace ApplicationForm
             {
                 AddMovie();
             }
-            else if (cmb_AddData.Text == "Review")
+            if (cmb_AddData.Text == "Review")
             {
                 AddReview();
             }
+            else if (cmb_AddData.Text == "Add Existing Actor to Existing Movie")
+            {
+                AddMovieActor();
+            }
+            
             else
             {
                 uxResults.Text += "";
@@ -193,8 +198,8 @@ namespace ApplicationForm
             string middleName = Interaction.InputBox("Middle name of the director: ");
             string lastName = Interaction.InputBox("Last name of the director: ");
             SqlActorRepository a = new SqlActorRepository(connectionString);
-            Cinema cinema = a.AddDirector(firstName, middleName, lastName);
-            if (cinema == null)
+            Director director = a.AddDirector(firstName, middleName, lastName);
+            if (director == null)
             {
                 MessageBox.Show("Insert attempt failed");
             }
@@ -203,12 +208,15 @@ namespace ApplicationForm
         private void AddMovie()
         {
             uxResults.Text = "";
-            string state = Interaction.InputBox("State the cinema is in: ");
-            string city = Interaction.InputBox("City the cinema is in: ");
-            string address = Interaction.InputBox("Address of the cinema: ");
-            SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
-            Cinema cinema = a.AddCinema(state, city, address);
-            if (cinema == null)
+            string movieName = Interaction.InputBox("Name of the movie: ");
+            string genre1 = Interaction.InputBox("First genre of movie: ");
+            string genre2 = Interaction.InputBox("Second genre of movie: ");
+            string genre3 = Interaction.InputBox("Third genre of movie: ");
+            string releaseDate = Interaction.InputBox("Release date of movie: \nYear-Month-Date (1999-12-04)");
+            string costofProduction = Interaction.InputBox("Cost of production for the movie: ");
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            Movie movie = a.AddMovie(movieName, genre1, genre2, genre3,Convert.ToDateTime(releaseDate), Convert.ToDouble(costofProduction));
+            if (movie == null)
             {
                 MessageBox.Show("Insert attempt failed");
             }
@@ -226,6 +234,21 @@ namespace ApplicationForm
             SqlReviewRepository a = new SqlReviewRepository(connectionString);
             Review review = a.AddReview(firstName, lastName, movieName, Convert.ToInt32(rating), Review, reviewSite);
             if (review == null)
+            {
+                MessageBox.Show("Insert attempt failed");
+            }
+        }
+
+        private void AddMovieActor()
+        {
+            uxResults.Text = "";
+            string salary = Interaction.InputBox("First name of the reviewer: ");
+            string firstName = Interaction.InputBox("First name of the reviewer: ");
+            string lastName = Interaction.InputBox("Last name of the reviewer: ");
+            string movieName = Interaction.InputBox("Name of the movie ");
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            MovieActor movieActor = a.AddMovieActor(Convert.ToDouble(salary), firstName, lastName, movieName);
+            if (movieActor == null)
             {
                 MessageBox.Show("Insert attempt failed");
             }
