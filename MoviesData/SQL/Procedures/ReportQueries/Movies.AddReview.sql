@@ -5,26 +5,30 @@ CREATE OR ALTER PROCEDURE Movies.AddReview
    @Rating INT,
    @Review NVARCHAR(1024),
    @ReviewSite NVARCHAR(32),
+   @ReviewerID INT OUTPUT,
+   @MovieID INT OUTPUT,
    @ReviewID INT OUTPUT
 AS
 
+/*
 if exists (select * from Movies.Reviewer R where R.FirstName = @FirstName and R.LastName = @LastName)
     UPDATE Movies.Reviewer
     SET
         UpdatedOn = SYSDATETIMEOFFSET()
     WHERE FirstName = @FirstName and LastName = @LastName
-else
+*/
+if not exists (select * from Movies.Reviewer R where R.FirstName = @FirstName and R.LastName = @LastName)
     INSERT Movies.Reviewer([FirstName],[LastName]) values(@FirstName, @LastName)
 
-DECLARE @ReviewerID INT =
+SET @ReviewerID =
     (
         SELECT R.ReviewerID
-        FROM Movies.Review R
+        FROM Movies.Reviewer R
         WHERE R.FirstName = @FirstName AND R.LastName = @LastName
     )
-DECLARE @MovieID INT =
+SET @MovieID =
     (
-        SELECT M.MovieName
+        SELECT M.MovieID
         FROM Movies.Movie M
         WHERE M.MovieName = @MovieName
     )
@@ -35,6 +39,7 @@ VALUES(@MovieID, @ReviewerID, @Rating, @Review, @ReviewSite)
 SET @ReviewID = SCOPE_IDENTITY();
 GO
 
+--EXEC Movies.AddReview @FirstName = 'Jameis', @LastName = 'Winston', @MovieName = 'The Shawshank Redemption', @Rating = 7, @Review = 'Fine', @ReviewSite = 'Yahoo', @ReviewerID = -1, @MovieID = -1, @ReviewID = -1;
 /*
 CREATE OR ALTER PROCEDURE Movies.AllMovieInfo
     @ReviewerFirstName NVARCHAR(32),
