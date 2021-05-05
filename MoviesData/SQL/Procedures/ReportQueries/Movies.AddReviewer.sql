@@ -4,8 +4,8 @@
 	@ReviewerID INT OUTPUT
 AS
 
-INSERT Movies.Reviewers(FirstName, LastName)
+INSERT Movies.Reviewer(FirstName, LastName)
 VALUES(@FirstName, @LastName);
 
-SET @ReivewerID = SCOPE_IDENTITY();
+SET @ReviewerID = SCOPE_IDENTITY();
 

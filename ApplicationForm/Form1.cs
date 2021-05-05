@@ -147,15 +147,19 @@ namespace ApplicationForm
             {
                 AddMovie();
             }
-            if (cmb_AddData.Text == "Review")
+            else if (cmb_AddData.Text == "Review")
             {
                 AddReview();
             }
-            if (cmb_AddData.Text == "Add Existing Actor to Existing Movie")
+            else if (cmb_AddData.Text == "Reviewer")
+            {
+                AddReviewer();
+            }
+            else if (cmb_AddData.Text == "Add Existing Actor to Existing Movie")
             {
                 AddMovieActor();
             }
-            if (cmb_AddData.Text == "Set an existing movie to play at an existing cinema")
+            else if (cmb_AddData.Text == "Set an existing movie to play at an existing cinema")
             {
                 AddMovieCinema();
             }
@@ -241,6 +245,19 @@ namespace ApplicationForm
             SqlReviewRepository a = new SqlReviewRepository(connectionString);
             Review review = a.AddReview(firstName, lastName, movieName, Convert.ToInt32(rating), Review, reviewSite);
             if (review == null)
+            {
+                MessageBox.Show("Insert attempt failed");
+            }
+        }
+
+        private void AddReviewer()
+        {
+            uxResults.Text = "";
+            string firstName = Interaction.InputBox("First name of the reviewer: ");
+            string lastName = Interaction.InputBox("Last name of the reviewer: ");
+            SqlReviewRepository a = new SqlReviewRepository(connectionString);
+            Reviewer reviewer = a.AddReviewer(firstName, lastName);
+            if (reviewer == null)
             {
                 MessageBox.Show("Insert attempt failed");
             }
