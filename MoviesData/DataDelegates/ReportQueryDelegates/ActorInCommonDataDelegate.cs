@@ -36,7 +36,6 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             }
             else
             {
-
                 var actorMoviePair = new List<(Actor, Actor, Movie)>();
 
                 while (reader.Read())

@@ -16,9 +16,10 @@ namespace ApplicationForm
 {
     public partial class Form1 : Form
     {
-        const string username = "";
-        const string password = "";
-        const string connectionString = @"Server=mssql.cs.ksu.edu;Database=kprice147;Integrated Security=false;UID=" + username + ";password=" + password;
+        const string database = "kprice147";
+        const string username = "kprice147";
+        const string password = "Hershykissess1.";
+        const string connectionString = @"Server=mssql.cs.ksu.edu;Database=" + database + ";Integrated Security=false;UID=" + username + ";password=" + password;
 
         public Form1()
         {

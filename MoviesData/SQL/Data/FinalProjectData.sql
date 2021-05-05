@@ -1,4 +1,8 @@
 
+
+
+
+
 INSERT Movies.Movie(MovieName, Genre1, Genre2, Genre3, ReleaseDate, CostOfProduction)
 VALUES(N'The Shawshank Redemption', N'Drama','','', '1994-10-14', 25000000),
         (N'The Godfather', N'Crime', N'Drama','', '1994-10-14', 7000000),
