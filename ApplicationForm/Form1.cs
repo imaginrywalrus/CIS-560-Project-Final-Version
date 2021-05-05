@@ -242,35 +242,35 @@ namespace ApplicationForm
 
         private void bt_QuestionQuery_Click(object sender, EventArgs e)
         {
-            if (cmb_QuestionQueries.Text == "ActorMovie")
+            if (cmb_QuestionQueries.Text == "Find Actor Movies")
             {
                 ActorMovie();
             }
-            else if (cmb_QuestionQueries.Text == "ActorSalary")
+            else if (cmb_QuestionQueries.Text == "Find Actor Salary")
             {
                 ActorSalary();
             }
-            else if (cmb_QuestionQueries.Text == "DirectorMovie")
+            else if (cmb_QuestionQueries.Text == "Find Director Movies")
             {
                 DirectorMovies();
             }
-            else if (cmb_QuestionQueries.Text == "GenreMovie")
+            else if (cmb_QuestionQueries.Text == "Find Genre Movies")
             {
                 GenreMovies();
             }
-            else if (cmb_QuestionQueries.Text == "MovieReview")
+            else if (cmb_QuestionQueries.Text == "Find Movie Review")
             {
                 MovieReviews();
             }
-            else if (cmb_QuestionQueries.Text == "ScoreReview")
+            else if (cmb_QuestionQueries.Text == "Find Score Review")
             {
                 ScoreReview();
             }
-            else if (cmb_QuestionQueries.Text == "StateCinema")
+            else if (cmb_QuestionQueries.Text == "Find State Cinemas")
             {
                 stateCinemas();
             }
-            else if (cmb_QuestionQueries.Text == "TotalSales")
+            else if (cmb_QuestionQueries.Text == "Get Total Sales")
             {
                 TotalSales();
             }
