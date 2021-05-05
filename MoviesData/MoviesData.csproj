@@ -55,6 +55,8 @@
     <Compile Include="DataDelegates\QuestionQueryDelegates\TotalSalesDataDelegate.cs" />
     <Compile Include="DataDelegates\ReportQueryDelegates\ActorGenreMoviesDataDelegate.cs" />
     <Compile Include="DataDelegates\ReportQueryDelegates\ActorInCommonDataDelegate.cs" />
+    <Compile Include="DataDelegates\ReportQueryDelegates\AddReviewDataDelegate.cs" />
+    <Compile Include="DataDelegates\ReportQueryDelegates\AllMovieInfoDataDelegate.cs" />
     <Compile Include="DataDelegates\ReportQueryDelegates\GoodReviewDataDelegate.cs" />
     <Compile Include="DataDelegates\ReportQueryDelegates\ShowingInfoDataDelegate.cs" />
     <Compile Include="IActorRepository.cs" />
@@ -81,6 +83,9 @@
     <Content Include="SQL\Procedures\QuestionQueries\Movies.ActorTotalSalary.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.AddCinema.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.AddDirector.sql" />
+    <Content Include="SQL\Procedures\ReportQueries\Movies.AddMovieActor.sql" />
+    <Content Include="SQL\Procedures\ReportQueries\Movies.AddMovieCinema.sql" />
+    <Content Include="SQL\Procedures\ReportQueries\Movies.AddMovieDirector.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.AddReviewer.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.DirectorMovies.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.DisplayActorInfo.sql" />
