@@ -6,15 +6,17 @@ using System.Data.SqlClient;
 
 namespace MoviesData.DataDelegates.ReportQueryDelegates
 {
-    internal class AddReviewerDataDelegate : DataReaderDelegate<Reviewer>
+    internal class AddActorDataDelegate : DataReaderDelegate<Actor>
     {
         private readonly string firstName;
+        private readonly string middleName;
         private readonly string lastName;
 
-        public AddReviewerDataDelegate(string firstName, string lastName)
-           : base("Movies.AddReviewer")
+        public AddActorDataDelegate(string firstName, string middleName, string lastName)
+           : base("Movies.AddActor")
         {
             this.firstName = firstName;
+            this.middleName = middleName;
             this.lastName = lastName;
         }
 
@@ -25,16 +27,19 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             var p = command.Parameters.Add("FirstName", SqlDbType.NVarChar);
             p.Value = firstName;
 
+            p = command.Parameters.Add("MiddleName", SqlDbType.NVarChar);
+            p.Value = middleName;
+
             p = command.Parameters.Add("LastName", SqlDbType.NVarChar);
             p.Value = lastName;
 
-            p = command.Parameters.Add("ReviewerID", SqlDbType.Int);
+            p = command.Parameters.Add("ActorID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
         }
 
-        public override Reviewer Translate(SqlCommand command, IDataRowReader reader)
+        public override Actor Translate(SqlCommand command, IDataRowReader reader)
         {
-            return new Reviewer((int)command.Parameters["ReviewerID"].Value, firstName, lastName);
+            return new Actor((int)command.Parameters["ActorID"].Value, firstName, middleName, lastName);
         }
     }
 }

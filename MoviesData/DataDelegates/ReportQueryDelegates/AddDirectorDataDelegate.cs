@@ -27,7 +27,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             var p = command.Parameters.Add("FirstName", SqlDbType.NVarChar);
             p.Value = firstName;
             
-            var p = command.Parameters.Add("MiddleName", SqlDbType.NVarChar);
+            p = command.Parameters.Add("MiddleName", SqlDbType.NVarChar);
             p.Value = middleName;
 
             p = command.Parameters.Add("LastName", SqlDbType.NVarChar);

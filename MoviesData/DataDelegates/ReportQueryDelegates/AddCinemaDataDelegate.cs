@@ -27,7 +27,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             var p = command.Parameters.Add("State", SqlDbType.NVarChar);
             p.Value = state;
 
-            var p = command.Parameters.Add("City", SqlDbType.NVarChar);
+            p = command.Parameters.Add("City", SqlDbType.NVarChar);
             p.Value = city;
 
             p = command.Parameters.Add("Address", SqlDbType.NVarChar);

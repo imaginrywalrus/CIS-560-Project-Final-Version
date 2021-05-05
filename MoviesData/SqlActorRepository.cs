@@ -15,6 +15,18 @@ namespace MoviesData
             executor = new SqlCommandExecutor(connectionString);
         }
 
+        public Actor AddActor(string firstName, string middleName, string lastName)
+        {
+            var d = new AddActorDataDelegate(firstName, middleName, lastName);
+            return executor.ExecuteReader(d);
+        }
+
+        public Actor AddDirector(string firstName, string middleName, string lastName)
+        {
+            var d = new AddActorDataDelegate(firstName, middleName, lastName);
+            return executor.ExecuteReader(d);
+        }
+
         public IReadOnlyList<Actor> DisplayActorInfo()
         {
             var d = new DisplayActorInfoDataDelegate();

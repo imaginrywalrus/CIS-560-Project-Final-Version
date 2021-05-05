@@ -41,6 +41,7 @@ namespace ApplicationForm
             this.cmb_QuestionQueries = new System.Windows.Forms.ComboBox();
             this.bt_QuestionQuery = new System.Windows.Forms.Button();
             this.bt_Add = new System.Windows.Forms.Button();
+            this.cmb_AddData = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // uxResults
@@ -50,14 +51,14 @@ namespace ApplicationForm
             this.uxResults.Name = "uxResults";
             this.uxResults.ReadOnly = true;
             this.uxResults.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.uxResults.Size = new System.Drawing.Size(376, 426);
+            this.uxResults.Size = new System.Drawing.Size(376, 501);
             this.uxResults.TabIndex = 1;
             this.uxResults.WordWrap = false;
             // 
             // bt_ActorGenreMovies
             // 
             this.bt_ActorGenreMovies.Location = new System.Drawing.Point(232, 153);
-            this.bt_ActorGenreMovies.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_ActorGenreMovies.Margin = new System.Windows.Forms.Padding(2);
             this.bt_ActorGenreMovies.Name = "bt_ActorGenreMovies";
             this.bt_ActorGenreMovies.Size = new System.Drawing.Size(112, 48);
             this.bt_ActorGenreMovies.TabIndex = 7;
@@ -68,7 +69,7 @@ namespace ApplicationForm
             // bt_ActorInCommon
             // 
             this.bt_ActorInCommon.Location = new System.Drawing.Point(232, 11);
-            this.bt_ActorInCommon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_ActorInCommon.Margin = new System.Windows.Forms.Padding(2);
             this.bt_ActorInCommon.Name = "bt_ActorInCommon";
             this.bt_ActorInCommon.Size = new System.Drawing.Size(112, 49);
             this.bt_ActorInCommon.TabIndex = 9;
@@ -79,7 +80,7 @@ namespace ApplicationForm
             // bt_goodReview
             // 
             this.bt_goodReview.Location = new System.Drawing.Point(232, 87);
-            this.bt_goodReview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_goodReview.Margin = new System.Windows.Forms.Padding(2);
             this.bt_goodReview.Name = "bt_goodReview";
             this.bt_goodReview.Size = new System.Drawing.Size(112, 45);
             this.bt_goodReview.TabIndex = 10;
@@ -90,7 +91,7 @@ namespace ApplicationForm
             // bt_ShowingInfo
             // 
             this.bt_ShowingInfo.Location = new System.Drawing.Point(232, 223);
-            this.bt_ShowingInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_ShowingInfo.Margin = new System.Windows.Forms.Padding(2);
             this.bt_ShowingInfo.Name = "bt_ShowingInfo";
             this.bt_ShowingInfo.Size = new System.Drawing.Size(112, 51);
             this.bt_ShowingInfo.TabIndex = 11;
@@ -168,19 +169,35 @@ namespace ApplicationForm
             // 
             // bt_Add
             // 
-            this.bt_Add.Location = new System.Drawing.Point(232, 291);
+            this.bt_Add.Location = new System.Drawing.Point(162, 459);
             this.bt_Add.Name = "bt_Add";
-            this.bt_Add.Size = new System.Drawing.Size(112, 44);
+            this.bt_Add.Size = new System.Drawing.Size(102, 54);
             this.bt_Add.TabIndex = 18;
             this.bt_Add.Text = "Add";
             this.bt_Add.UseVisualStyleBackColor = true;
             this.bt_Add.Click += new System.EventHandler(this.bt_Add_Click);
             // 
+            // cmb_AddData
+            // 
+            this.cmb_AddData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_AddData.FormattingEnabled = true;
+            this.cmb_AddData.Items.AddRange(new object[] {
+            "Actor",
+            "Cinema",
+            "Director",
+            "Movie",
+            "Review"});
+            this.cmb_AddData.Location = new System.Drawing.Point(9, 459);
+            this.cmb_AddData.Name = "cmb_AddData";
+            this.cmb_AddData.Size = new System.Drawing.Size(121, 21);
+            this.cmb_AddData.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 452);
+            this.ClientSize = new System.Drawing.Size(790, 548);
+            this.Controls.Add(this.cmb_AddData);
             this.Controls.Add(this.bt_Add);
             this.Controls.Add(this.bt_QuestionQuery);
             this.Controls.Add(this.cmb_QuestionQueries);
@@ -213,6 +230,7 @@ namespace ApplicationForm
         private System.Windows.Forms.ComboBox cmb_QuestionQueries;
         private System.Windows.Forms.Button bt_QuestionQuery;
         private System.Windows.Forms.Button bt_Add;
+        private System.Windows.Forms.ComboBox cmb_AddData;
     }
 }
 

@@ -131,6 +131,91 @@ namespace ApplicationForm
 
         private void bt_Add_Click(object sender, EventArgs e)
         {
+            if (cmb_AddData.Text == "Actor")
+            {
+                AddActor();
+            }
+            else if (cmb_AddData.Text == "Cinema")
+            {
+                AddCinema();
+            }
+            else if (cmb_AddData.Text == "Director")
+            {
+                AddDirector();
+            }
+            else if (cmb_AddData.Text == "Movie")
+            {
+                AddMovie();
+            }
+            else if (cmb_AddData.Text == "Review")
+            {
+                AddReview();
+            }
+            else
+            {
+                uxResults.Text += "";
+                uxResults.Text += "Please Select an option in the drop down box";
+            }
+        }
+
+        private void AddActor()
+        {
+            uxResults.Text = "";
+            string firstName = Interaction.InputBox("First name of the actor: ");
+            string middleName = Interaction.InputBox("Middle name of the actor: ");
+            string lastName = Interaction.InputBox("Last name of the actor: ");
+            SqlActorRepository a = new SqlActorRepository(connectionString);
+            Actor actor = a.AddActor(firstName, middleName, lastName);
+            if (actor == null)
+            {
+                MessageBox.Show("Insert attempt failed");
+            }
+        }
+
+        private void AddCinema()
+        {
+            uxResults.Text = "";
+            string state = Interaction.InputBox("State the cinema is in: ");
+            string city = Interaction.InputBox("City the cinema is in: ");
+            string address = Interaction.InputBox("Address of the cinema: ");
+            SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
+            Cinema cinema = a.AddCinema(state, city, address);
+            if (cinema == null)
+            {
+                MessageBox.Show("Insert attempt failed");
+            }
+        }
+
+        private void AddDirector()
+        {
+            uxResults.Text = "";
+            string firstName = Interaction.InputBox("First name of the director: ");
+            string middleName = Interaction.InputBox("Middle name of the director: ");
+            string lastName = Interaction.InputBox("Last name of the director: ");
+            SqlActorRepository a = new SqlActorRepository(connectionString);
+            Cinema cinema = a.AddDirector(firstName, middleName, lastName);
+            if (cinema == null)
+            {
+                MessageBox.Show("Insert attempt failed");
+            }
+        }
+
+        private void AddMovie()
+        {
+            uxResults.Text = "";
+            string state = Interaction.InputBox("State the cinema is in: ");
+            string city = Interaction.InputBox("City the cinema is in: ");
+            string address = Interaction.InputBox("Address of the cinema: ");
+            SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
+            Cinema cinema = a.AddCinema(state, city, address);
+            if (cinema == null)
+            {
+                MessageBox.Show("Insert attempt failed");
+            }
+        }
+
+        private void AddReview()
+        {
             uxResults.Text = "";
             string firstName = Interaction.InputBox("First name of the reviewer: ");
             string lastName = Interaction.InputBox("Last name of the reviewer: ");
@@ -142,7 +227,7 @@ namespace ApplicationForm
             Review review = a.AddReview(firstName, lastName, movieName, Convert.ToInt32(rating), Review, reviewSite);
             if (review == null)
             {
-                MessageBox.Show("No Results Found");
+                MessageBox.Show("Insert attempt failed");
             }
         }
 
