@@ -144,14 +144,14 @@ namespace ApplicationForm
             this.cmb_QuestionQueries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_QuestionQueries.FormattingEnabled = true;
             this.cmb_QuestionQueries.Items.AddRange(new object[] {
-            "ActorMovie",
-            "ActorSalary",
-            "DirectorMovie",
-            "GenreMovie",
-            "MovieReview",
-            "ScoreReview",
-            "StateCinema",
-            "TotalSales"});
+            "Find Actor Movies",
+            "Find Actor Salary",
+            "Find Director Movies",
+            "Find Genre Movies",
+            "Find Movie Review",
+            "Find Score Review",
+            "Find State Cinemas",
+            "Get Total Sales"});
             this.cmb_QuestionQueries.Location = new System.Drawing.Point(9, 362);
             this.cmb_QuestionQueries.Name = "cmb_QuestionQueries";
             this.cmb_QuestionQueries.Size = new System.Drawing.Size(121, 21);
