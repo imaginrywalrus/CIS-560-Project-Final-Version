@@ -129,6 +129,22 @@ namespace ApplicationForm
             }
         }
 
+        private void bt_Add_Click(object sender, EventArgs e)
+        {
+            uxResults.Text = "";
+            string firstName = Interaction.InputBox("First name of the reviewer: ");
+            string lastName = Interaction.InputBox("Last name of the reviewer: ");
+            string movieName = Interaction.InputBox("Name of the movie ");
+            string rating = Interaction.InputBox("Rating of the movie: ");
+            string Review = Interaction.InputBox("The review of the movie: ");
+            string reviewSite = Interaction.InputBox("Website that review was left on: ");
+            SqlReviewRepository a = new SqlReviewRepository(connectionString);
+            Review review = a.AddReview(firstName, lastName, movieName, Convert.ToInt32(rating), Review, reviewSite);
+            if (review == null)
+            {
+                MessageBox.Show("No Results Found");
+            }
+        }
 
         private void bt_ActorInCommon_Click(object sender, EventArgs e)
         {
@@ -470,5 +486,7 @@ namespace ApplicationForm
                 uxResults.AppendText(Environment.NewLine);
             }
         }
+
+
     }
 } 

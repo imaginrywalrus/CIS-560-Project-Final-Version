@@ -14,11 +14,11 @@ namespace MoviesData
         {
             executor = new SqlCommandExecutor(connectionString);
         }
-
+        
         public bool AddMovie(string MovieName)
         {
-            var d = new AddMovieDataDelegate(MovieName);
-            return executor.ExecuteReader(d);
+            //var d = new AddMovieDataDelegate(MovieName);
+            return true;// executor.ExecuteReader(d);
         }
 
         public IReadOnlyList<Movie> DisplayMovieInfo()
