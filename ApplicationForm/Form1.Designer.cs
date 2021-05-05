@@ -62,7 +62,7 @@ namespace ApplicationForm
             this.bt_ActorGenreMovies.Name = "bt_ActorGenreMovies";
             this.bt_ActorGenreMovies.Size = new System.Drawing.Size(112, 48);
             this.bt_ActorGenreMovies.TabIndex = 7;
-            this.bt_ActorGenreMovies.Text = "Filter for Movies with Certain Actors and Genres";
+            this.bt_ActorGenreMovies.Text = "Filter for Reviews with Certain Actors and Genres";
             this.bt_ActorGenreMovies.UseVisualStyleBackColor = true;
             this.bt_ActorGenreMovies.Click += new System.EventHandler(this.bt_ActorGenreMovies_Click);
             // 
@@ -95,7 +95,7 @@ namespace ApplicationForm
             this.bt_ShowingInfo.Name = "bt_ShowingInfo";
             this.bt_ShowingInfo.Size = new System.Drawing.Size(112, 51);
             this.bt_ShowingInfo.TabIndex = 11;
-            this.bt_ShowingInfo.Text = "Showing Info";
+            this.bt_ShowingInfo.Text = "Cinema Revenue per State";
             this.bt_ShowingInfo.UseVisualStyleBackColor = true;
             this.bt_ShowingInfo.Click += new System.EventHandler(this.bt_ShowingInfo_Click);
             // 
@@ -215,7 +215,7 @@ namespace ApplicationForm
             this.Controls.Add(this.bt_ActorGenreMovies);
             this.Controls.Add(this.uxResults);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "MovieDatabase";
             this.ResumeLayout(false);
             this.PerformLayout();
 
