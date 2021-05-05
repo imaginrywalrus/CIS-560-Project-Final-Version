@@ -4,4 +4,4 @@
 AS
 
 DELETE Movies.Review
-WHERE CinemaID = @CinemaID AND MovieID = @MovieID
+WHERE CinemaID = @CinemaID AND MovieID = @MovieID;
