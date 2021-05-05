@@ -14,10 +14,13 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
         private readonly string movieName;
 
 
-        public AddMovieActorDataDelegate(float salary, string firstName, string lastName, string movieName)
+        public AddMovieActorDataDelegate(double salary, string firstName, string lastName, string movieName)
            : base("Movies.AddMovieActor")
         {
             this.salary = salary;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.movieName = movieName;
         }
 
         public override void PrepareCommand(SqlCommand command)
@@ -27,13 +30,13 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             var p = command.Parameters.Add("Salary", SqlDbType.Float);
             p.Value = salary;
 
-            p = command.Parameters.Add("FirstName", SqlDbType.Float);
+            p = command.Parameters.Add("FirstName", SqlDbType.NVarChar);
             p.Value = firstName;
 
-            p = command.Parameters.Add("LastName", SqlDbType.Float);
+            p = command.Parameters.Add("LastName", SqlDbType.NVarChar);
             p.Value = lastName;
 
-            p = command.Parameters.Add("MovieName", SqlDbType.Float);
+            p = command.Parameters.Add("MovieName", SqlDbType.NVarChar);
             p.Value = movieName;
 
             p = command.Parameters.Add("ActorID", SqlDbType.Int);

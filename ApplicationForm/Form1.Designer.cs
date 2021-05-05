@@ -169,7 +169,7 @@ namespace ApplicationForm
             // 
             // bt_Add
             // 
-            this.bt_Add.Location = new System.Drawing.Point(162, 459);
+            this.bt_Add.Location = new System.Drawing.Point(232, 459);
             this.bt_Add.Name = "bt_Add";
             this.bt_Add.Size = new System.Drawing.Size(102, 54);
             this.bt_Add.TabIndex = 18;
@@ -187,10 +187,11 @@ namespace ApplicationForm
             "Director",
             "Movie",
             "Review",
-            "Add Existing Actor to Existing Movie"});
+            "Add Existing Actor to Existing Movie",
+            "Add Existing Director to Existing Movie"});
             this.cmb_AddData.Location = new System.Drawing.Point(9, 459);
             this.cmb_AddData.Name = "cmb_AddData";
-            this.cmb_AddData.Size = new System.Drawing.Size(121, 21);
+            this.cmb_AddData.Size = new System.Drawing.Size(204, 21);
             this.cmb_AddData.TabIndex = 19;
             // 
             // Form1
