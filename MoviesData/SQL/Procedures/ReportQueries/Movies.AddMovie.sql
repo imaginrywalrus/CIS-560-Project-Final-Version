@@ -4,8 +4,11 @@
 	@Genre2 NVARCHAR(64),
 	@Genre3 NVARCHAR(64),
 	@ReleaseDate DATETIME2(0),
-	@CostOfProduction FLOAT
+	@CostOfProduction FLOAT,
+	@MovieID INT OUTPUT
 AS
 
 INSERT Movies.Movie(MovieName, Genre1, Genre2, Genre3, ReleaseDate, CostOfProduction)
 VALUES(@MovieName, @Genre1, @Genre2, @Genre3, @ReleaseDate, @CostOfProduction);
+
+SET @MovieID = SCOPE_IDENTITY();
