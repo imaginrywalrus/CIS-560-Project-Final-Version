@@ -79,6 +79,9 @@
     <Content Include="SQL\Procedures\FinalProjectQueries.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.ActorMovies.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.ActorTotalSalary.sql" />
+    <Content Include="SQL\Procedures\ReportQueries\Movies.AddCinema.sql" />
+    <Content Include="SQL\Procedures\ReportQueries\Movies.AddDirector.sql" />
+    <Content Include="SQL\Procedures\ReportQueries\Movies.AddReviewer.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.DirectorMovies.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.DisplayActorInfo.sql" />
     <Content Include="SQL\Procedures\QuestionQueries\Movies.DisplayCinemaInfo.sql" />
@@ -91,6 +94,7 @@
     <Content Include="SQL\Procedures\QuestionQueries\Movies.TotalSales.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.ActorGenreMovies.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.ActorInCommon.sql" />
+    <Content Include="SQL\Procedures\ReportQueries\Movies.AddActor.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.AddMovie.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.AddReview.sql" />
     <Content Include="SQL\Procedures\ReportQueries\Movies.GoodReview.sql" />
