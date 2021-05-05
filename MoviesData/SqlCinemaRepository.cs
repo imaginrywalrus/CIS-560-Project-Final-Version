@@ -38,5 +38,11 @@ namespace MoviesData
             var d = new StateCinemasDataDelegate(state);
             return executor.ExecuteReader(d);
         }
+
+        public MovieCinema AddMovieCinema(string address, string movieName, DateTime playingTime, double ticketsSold, double ticketPrice)
+        {
+            var d = new AddMovieCinemaDataDelegate(address, movieName, playingTime, ticketsSold, ticketPrice);
+            return executor.ExecuteReader(d);
+        }
     }
 }

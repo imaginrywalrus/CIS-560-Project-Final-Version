@@ -5,3 +5,4 @@ AS
 
 DELETE Movies.Actor
 WHERE FirstName = @FirstName AND LastName = @LastName;
+

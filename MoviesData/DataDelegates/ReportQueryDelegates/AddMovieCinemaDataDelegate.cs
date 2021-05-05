@@ -9,13 +9,17 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
 {
     internal class AddMovieCinemaDataDelegate : DataReaderDelegate<MovieCinema>
     {
+        private readonly string address;
+        private readonly string movieName;
         private readonly DateTime playingTime;
         private readonly double ticketsSold;
         private readonly double ticketPrice;
 
-        public AddMovieCinemaDataDelegate(DateTime playingTime, double ticketsSold, double ticketPrice, int rating, string review, string reviewSite)
+        public AddMovieCinemaDataDelegate(string address, string movieName, DateTime playingTime, double ticketsSold, double ticketPrice)
            : base("Movies.AddMovieCinema")
         {
+            this.address = address;
+            this.movieName = movieName;
             this.playingTime = playingTime;
             this.ticketsSold = ticketsSold;
             this.ticketPrice = ticketPrice;
@@ -24,6 +28,12 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
+
+            var p = command.Parameters.Add("Address", SqlDbType.NVarChar);
+            p.Value = address;
+
+            p = command.Parameters.Add("TicketsSold", SqlDbType.NVarChar);
+            p.Value = movieName;
 
             var p = command.Parameters.Add("PlayingTime", SqlDbType.DateTime2);
             p.Value = playingTime;

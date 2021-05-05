@@ -254,6 +254,22 @@ namespace ApplicationForm
             }
         }
 
+        private void AddMovieCinema()
+        {
+            uxResults.Text = "";
+            string address = Interaction.InputBox("Address of the cinema: ");
+            string moveName = Interaction.InputBox("Name of the movie: ");
+            string playingTime = Interaction.InputBox("Playing time of the movie: \nYear-Month-Date (1999-12-04)");
+            string ticketsSold = Interaction.InputBox("Tickets sold for the movie: ");
+            string ticketPrice = Interaction.InputBox("Ticket price of the movie: ");
+            SqlCinemaRepository a = new SqlCinemaRepository(connectionString);
+            MovieCinema review = a.AddMovieCinema(address, moveName, Convert.ToDateTime(playingTime), Convert.ToDouble(ticketsSold), Convert.ToDouble(ticketPrice));
+            if (review == null)
+            {
+                MessageBox.Show("Insert attempt failed");
+            }
+        }
+
         private void bt_ActorInCommon_Click(object sender, EventArgs e)
         {
             uxResults.Text = "";
