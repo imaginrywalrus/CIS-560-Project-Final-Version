@@ -188,6 +188,7 @@ namespace ApplicationForm
             "Movie",
             "Review",
             "Add Existing Actor to Existing Movie",
+            "Set an existing movie to play at an existing cinema",
             "Add Existing Director to Existing Movie"});
             this.cmb_AddData.Location = new System.Drawing.Point(9, 459);
             this.cmb_AddData.Name = "cmb_AddData";

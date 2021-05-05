@@ -155,6 +155,10 @@ namespace ApplicationForm
             {
                 AddMovieActor();
             }
+            if (cmb_AddData.Text == "Set an existing movie to play at an existing cinema")
+            {
+                AddMovieCinema();
+            }
             else if (cmb_AddData.Text == "Add Existing Director to Existing Movie")
             {
                 AddMovieDirector();
@@ -277,7 +281,7 @@ namespace ApplicationForm
             uxResults.Text = "";
             string address = Interaction.InputBox("Address of the cinema: ");
             string moveName = Interaction.InputBox("Name of the movie: ");
-            string playingTime = Interaction.InputBox("Playing time of the movie: \nYear-Month-Date (1999-12-04)");
+            string playingTime = Interaction.InputBox("Playing time of the movie: \nYear-Month-Date Hour:Minute:Second (1999-12-04 11:30:00)");
             string ticketsSold = Interaction.InputBox("Tickets sold for the movie: ");
             string ticketPrice = Interaction.InputBox("Ticket price of the movie: ");
             SqlCinemaRepository a = new SqlCinemaRepository(connectionString);

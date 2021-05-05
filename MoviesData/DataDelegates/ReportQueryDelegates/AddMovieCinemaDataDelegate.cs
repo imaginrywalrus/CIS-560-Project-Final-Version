@@ -32,10 +32,10 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             var p = command.Parameters.Add("Address", SqlDbType.NVarChar);
             p.Value = address;
 
-            p = command.Parameters.Add("TicketsSold", SqlDbType.NVarChar);
+            p = command.Parameters.Add("MovieName", SqlDbType.NVarChar);
             p.Value = movieName;
 
-            var p = command.Parameters.Add("PlayingTime", SqlDbType.DateTime2);
+            p = command.Parameters.Add("PlayingTime", SqlDbType.DateTime2);
             p.Value = playingTime;
 
             p = command.Parameters.Add("TicketsSold", SqlDbType.Float);
