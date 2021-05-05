@@ -35,7 +35,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
             p = command.Parameters.Add("TicketsSold", SqlDbType.NVarChar);
             p.Value = movieName;
 
-            var p = command.Parameters.Add("PlayingTime", SqlDbType.DateTime2);
+            p = command.Parameters.Add("PlayingTime", SqlDbType.DateTime2);
             p.Value = playingTime;
 
             p = command.Parameters.Add("TicketsSold", SqlDbType.Float);
