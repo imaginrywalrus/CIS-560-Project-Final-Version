@@ -151,11 +151,14 @@ namespace ApplicationForm
             {
                 AddReview();
             }
-            else if (cmb_AddData.Text == "Add Existing Actor to Existing Movie")
+            if (cmb_AddData.Text == "Add Existing Actor to Existing Movie")
             {
                 AddMovieActor();
             }
-            
+            else if (cmb_AddData.Text == "Add Existing Director to Existing Movie")
+            {
+                AddMovieDirector();
+            }
             else
             {
                 uxResults.Text += "";
@@ -215,7 +218,7 @@ namespace ApplicationForm
             string releaseDate = Interaction.InputBox("Release date of movie: \nYear-Month-Date (1999-12-04)");
             string costofProduction = Interaction.InputBox("Cost of production for the movie: ");
             SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
-            Movie movie = a.AddMovie(movieName, genre1, genre2, genre3,Convert.ToDateTime(releaseDate), Convert.ToDouble(costofProduction));
+            Movie movie = a.AddMovie(movieName, genre1, genre2, genre3, Convert.ToDateTime(releaseDate), Convert.ToDouble(costofProduction));
             if (movie == null)
             {
                 MessageBox.Show("Insert attempt failed");
@@ -242,13 +245,28 @@ namespace ApplicationForm
         private void AddMovieActor()
         {
             uxResults.Text = "";
-            string salary = Interaction.InputBox("First name of the reviewer: ");
-            string firstName = Interaction.InputBox("First name of the reviewer: ");
-            string lastName = Interaction.InputBox("Last name of the reviewer: ");
+            string firstName = Interaction.InputBox("First name of the Actor: ");
+            string lastName = Interaction.InputBox("Last name of the Actor: ");
             string movieName = Interaction.InputBox("Name of the movie ");
+            string salary = Interaction.InputBox("The salary of the actor on the movie: ");
             SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
             MovieActor movieActor = a.AddMovieActor(Convert.ToDouble(salary), firstName, lastName, movieName);
             if (movieActor == null)
+            {
+                MessageBox.Show("Insert attempt failed");
+            }
+        }
+
+        private void AddMovieDirector()
+        {
+            uxResults.Text = "";
+            string firstName = Interaction.InputBox("First name of the Actor: ");
+            string lastName = Interaction.InputBox("Last name of the Actor: ");
+            string movieName = Interaction.InputBox("Name of the movie ");
+            string salary = Interaction.InputBox("The salary of the actor on the movie: ");
+            SqlMoviesRepository a = new SqlMoviesRepository(connectionString);
+            MovieDirector movieDirector = a.AddMovieDirector(Convert.ToDouble(salary), firstName, lastName, movieName);
+            if (movieDirector == null)
             {
                 MessageBox.Show("Insert attempt failed");
             }

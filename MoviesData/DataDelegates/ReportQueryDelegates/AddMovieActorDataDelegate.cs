@@ -14,7 +14,7 @@ namespace MoviesData.DataDelegates.ReportQueryDelegates
         private readonly string movieName;
 
 
-        public AddMovieActorDataDelegate(float salary, string firstName, string lastName, string movieName)
+        public AddMovieActorDataDelegate(double salary, string firstName, string lastName, string movieName)
            : base("Movies.AddMovieActor")
         {
             this.salary = salary;

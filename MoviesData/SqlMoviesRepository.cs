@@ -21,6 +21,18 @@ namespace MoviesData
             return executor.ExecuteReader(d);
         }
 
+        public MovieActor AddMovieActor(double salary, string firstName, string lastName, string movieName)
+        {
+            var d = new AddMovieActorDataDelegate(salary, firstName, lastName, movieName);
+            return executor.ExecuteReader(d);
+        }
+
+        public MovieDirector AddMovieDirector(double salary, string firstName, string lastName, string movieName)
+        {
+            var d = new AddMovieDirectorDataDelegate(salary, firstName, lastName, movieName);
+            return executor.ExecuteReader(d);
+        }
+
         public IReadOnlyList<Movie> DisplayMovieInfo()
         {
             var d = new DisplayMovieInfoDataDelegate();

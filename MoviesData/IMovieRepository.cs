@@ -10,6 +10,10 @@ namespace MoviesData
     {
         Movie AddMovie(string movieName, string genre1, string genre2, string genre3, DateTime releaseDate, double costOfProduction);
 
+        MovieActor AddMovieActor(double salary, string firstName, string lastName, string movieName);
+
+        MovieDirector AddMovieDirector(double salary, string firstName, string lastName, string movieName);
+
         IReadOnlyList<Movie> DisplayMovieInfo();
 
         IReadOnlyList<Movie> ActorMovie(string firstName, string lastName);
