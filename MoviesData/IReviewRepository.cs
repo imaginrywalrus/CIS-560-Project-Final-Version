@@ -7,6 +7,8 @@ namespace MoviesData
     {
         Review AddReview(string firstName, string lastName, string movieName, int rating, string review, string reviewSite);
 
+        Reviewer AddReviewer(string firstName, string lastName);
+
         IReadOnlyList<Review> DisplayReviewInfo();
 
         IReadOnlyList<Review> MovieReviews(string movieName);

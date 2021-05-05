@@ -15,6 +15,12 @@ namespace MoviesData
             executor = new SqlCommandExecutor(connectionString);
         }
 
+        public Reviewer AddReviewer(string firstName, string lastName)
+        {
+            var d = new AddReviewerDataDelegate(firstName, lastName);
+            return executor.ExecuteReader(d);
+        }
+
         public Review AddReview(string firstName, string lastName, string movieName, int rating, string review, string reviewSite)
         {
             var d = new AddReviewDataDelegate(firstName, lastName, movieName, rating, review, reviewSite);

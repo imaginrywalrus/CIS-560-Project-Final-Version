@@ -187,6 +187,7 @@ namespace ApplicationForm
             "Director",
             "Movie",
             "Review",
+            "Reviewer",
             "Add Existing Actor to Existing Movie",
             "Set an existing movie to play at an existing cinema",
             "Add Existing Director to Existing Movie"});
