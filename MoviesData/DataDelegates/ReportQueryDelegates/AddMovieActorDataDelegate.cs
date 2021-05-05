@@ -6,40 +6,33 @@ using System.Data.SqlClient;
 
 namespace MoviesData.DataDelegates.ReportQueryDelegates
 {
-    internal class AddActorDataDelegate : DataReaderDelegate<Actor>
+    internal class AddMovieActorDataDelegate : DataReaderDelegate<MovieActor>
     {
-        private readonly string firstName;
-        private readonly string middleName;
-        private readonly string lastName;
+        private readonly double salary;
 
-        public AddActorDataDelegate(string firstName, string middleName, string lastName)
-           : base("Movies.AddActor")
+        public AddMovieActorDataDelegate(float salary)
+           : base("Movies.AddMovieActor")
         {
-            this.firstName = firstName;
-            this.middleName = middleName;
-            this.lastName = lastName;
+            this.salary = salary;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            var p = command.Parameters.Add("FirstName", SqlDbType.NVarChar);
-            p.Value = firstName;
-
-            var p = command.Parameters.Add("MiddleName", SqlDbType.NVarChar);
-            p.Value = middleName;
-
-            p = command.Parameters.Add("LastName", SqlDbType.NVarChar);
-            p.Value = lastName;
+            var p = command.Parameters.Add("Salary", SqlDbType.Float);
+            p.Value = salary;
 
             p = command.Parameters.Add("ActorID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
+            
+            p = command.Parameters.Add("MovieID", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
         }
 
-        public override Actor Translate(SqlCommand command, IDataRowReader reader)
+        public override MovieActor Translate(SqlCommand command, IDataRowReader reader)
         {
-            return new Actor((int)command.Parameters["ActorID"].Value, firstName, middleName, lastName);
+            return new MovieActor((int)command.Parameters["ActorID"].Value, (int)command.Parameters["MovieID"].Value, salary);
         }
     }
 }
